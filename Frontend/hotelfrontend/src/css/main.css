@@ -24,7 +24,7 @@
  
   .login-box {
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 50%;
     width: 400px;
     padding: 40px;
@@ -183,3 +183,21 @@
     }
   }
   
+  /* Admin Dashboard */
+  .Dashboard .list-group{
+    margin-left: 20px;
+  }
+  .Dashboard .list-group-item{
+    padding: 33px 40px;
+    font-size: 16px;
+  } 
+  .Dashboard .tab-content{
+    margin: 0px 15px
+  }
+
+  /* Booking */
+.table{
+ 
+  font-size: 14px;
+  margin: -9px 44px;
+}

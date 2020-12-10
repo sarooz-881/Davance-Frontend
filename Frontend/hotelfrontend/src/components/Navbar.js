@@ -21,7 +21,7 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse font-weight-bold " id="navbarSupportedContent">
           <div className="navbar-header ">
-      <Link className="navbar-brand" to="#">WebSiteName</Link>
+      <Link className="navbar-brand" to="/">Davance</Link>
      </div>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
