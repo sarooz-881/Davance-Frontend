@@ -15,6 +15,8 @@ class Signin extends Component {
                            <input type="text" name="email" required=""/>
                            <label>Email</label>
                      </div>
+
+                     
                              <div className="user-box">
                                <input type="password" name="password" required=""/>
                               <label>Password</label>

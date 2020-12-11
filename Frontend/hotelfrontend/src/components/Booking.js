@@ -12,8 +12,8 @@ class Booking extends Component {
     <tr>
       <th>#</th>
       <th>Hotel Name</th>
-      <th>Date Start</th>
-      <th>Date End</th>
+      <th>Check In</th>
+      <th>Check Out</th>
       <th>Stay</th>
       <th>Room Type</th>
       <th>Guest</th>
@@ -24,11 +24,12 @@ class Booking extends Component {
       <th>Mobile</th>
       <th>Payment</th>
       <th>Status</th>
+      <th>Action</th>
     </tr>
   </thead>
  
   <tbody>
-    <tr class="table-info col-mb-7">
+    <tr className="table-info col-mb-7">
       <th scope="row">1</th>
       <td></td>
       <td></td>

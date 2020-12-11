@@ -199,5 +199,24 @@
 .table{
  
   font-size: 14px;
-  margin: -9px 44px;
+  margin: -9px 28px;
+}
+
+/* Registration Form for Hotel and Admin */
+.register form{
+  width: 557px;
+  font-size: 16px;
+  margin-left: 47px;
+}
+.register .form-control{
+  padding: 19px 13px !important;
+  font-size: 12px !important;
+}
+.register .form-controls{
+  padding: 5px 8px !important;
+}
+.register .reg {
+  padding: 8px 33px;
+    font-size: 12px;
+    font-weight: 800;
 }
