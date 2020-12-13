@@ -8,6 +8,12 @@ import Admindashboard from "./components/Admindashboard";
 import Booking from "./components/Booking";
 import Users from "./components/Users";
 import HotelRegister from "./components/HotelRegister";
+import Profile from "./components/Profile";
+import HotelDashboard from "./components/HotelDashboard";
+import HotelBooking from "./components/HotelBooking";
+import HotelInformation from "./components/HotelInformation";
+import HotelPackage from "./components/HotelPackage";
+import AddHotelPackage from "./components/Addhotelpackage";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +27,12 @@ function App() {
           <Route path="/Booking" exact component={Booking}></Route>
           <Route path="/Users" exact component={Users}></Route>
           <Route path="/Register" exact component={HotelRegister}></Route>
+          <Route path="/Profile" exact component={Profile}></Route>
+          <Route path="/HotelDashboard" exact component={HotelDashboard}></Route>
+          <Route path="/Booking" exact component={HotelBooking}></Route>
+          <Route path="/HotelInformation" exact component={HotelInformation}></Route>
+          <Route path="/HotelPackage" exact component={HotelPackage}></Route>
+          <Route path="/AddHotelPackage" exact component={AddHotelPackage}></Route>         
 
           </Switch>
     </div>

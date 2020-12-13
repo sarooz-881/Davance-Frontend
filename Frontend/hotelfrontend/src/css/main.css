@@ -220,3 +220,54 @@
     font-size: 12px;
     font-weight: 800;
 }
+
+/* Profile */
+.profile label{
+  font-size:18px;
+}
+.profile .row {
+  padding:15px 8px;
+}
+.profile p{
+  font-weight: 600;
+  color: #0062cc;
+  font-size:16px;
+}
+
+/* HotelInformation */
+.hotelinformation form{
+  width:367px;
+}
+.hotelinformation .form-group{
+  font-size: 16px;
+}
+.hotelinformation .form-group input[type="text"]{
+  padding: 20px 16px;
+  font-size: 13px;
+}
+.hotelinformation .form-group textarea{
+  padding: 39px 8px;
+}
+.hotelinformation .form-group button{
+  padding: 11px 27px;
+  font-size: 16px;
+}
+
+/* Hotel Package */
+.hotelpackage .form-group button{
+  padding: 4px 26px;
+  font-size: 16px;
+}
+.hotelpackage table{
+  margin: 6px 0px 0px -16px;
+    width: 421px;
+
+}
+/* Addhotelpackage */
+.addhotelpackage input[type="text"]{
+  padding: 18px 16px;
+  font-size:14px;
+}
+.addhotelpackage button {
+  font-size: 15px;
+}
