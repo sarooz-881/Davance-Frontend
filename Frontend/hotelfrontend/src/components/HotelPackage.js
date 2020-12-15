@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../css/main.css";
-import AddHotelPackage from "./Addhotelpackage";
+
 
 class HotelPackage extends Component {
     render() {return(<div className="hotelpackage">
@@ -9,7 +9,8 @@ class HotelPackage extends Component {
         <div className="form-group row">
          <div className="col-md-10 mt-3">
          <h3 className="font-weight-bold">Add Hotel Package</h3>
-        <Link to={`AddHotelPackage`}><button type="submit" className="btn btn-primary font-weight-bold">Add</button></Link>
+          <input type="text" className="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Hotel Package"/>
+          <button type="submit" className="font-weight-bold btn btn-primary mb-2">Add</button>
         </div>   
         </div>
 
@@ -36,9 +37,5 @@ class HotelPackage extends Component {
 </table>
        </div>
         </div>
-     
-        
-
- 
     </div>)}}
     export default HotelPackage;

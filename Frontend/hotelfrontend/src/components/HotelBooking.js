@@ -6,8 +6,6 @@ class HotelBooking extends Component {
     render() {return(<div className="book">
       
 <table className="table table-striped ">
-
- 
   <thead>
     <tr>
       <th>#</th>
@@ -43,12 +41,8 @@ class HotelBooking extends Component {
       <td></td>
       <td></td>
       <td></td>
-    </tr>
-    
+    </tr>    
   </tbody>
-
-
-
 </table>
 
     </div>

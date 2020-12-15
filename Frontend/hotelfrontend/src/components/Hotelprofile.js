@@ -1,14 +1,21 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../css/main.css";
+import {Alert} from "reactstrap";
 
-
-class Profile extends Component {
+class Hotelprofile extends Component {
     render() {
         return(
             <div className="profile">
                 <div className="container-fluid col-lg-12">
                 <div className="tab-pane ">
+                <div className="row">
+                                            <div className="col-md-12">
+                                                <label>Hotel Name</label>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <p></p>
+                                            </div>
+                                        </div>
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <label>Email</label>
@@ -61,4 +68,4 @@ class Profile extends Component {
                 </div>
             </div>
         )}}
-        export default Profile;
+        export default Hotelprofile;
