@@ -16,7 +16,7 @@ import HotelPackage from "./components/HotelPackage";
 import Hotelprofile from "./components/Hotelprofile";
 import Gallery from "./components/Gallery";
 import RoomType from "./components/RoomType";
-
+import Roomtypeform from "./components/Roomtypeform";
 function App() {
   return (
     <BrowserRouter>
@@ -38,6 +38,7 @@ function App() {
           <Route path="/Hotelprofile" exact component={Hotelprofile}></Route>
           <Route path="/Gallery" exact component={Gallery}></Route>
           <Route path="/RoomType" exact component={RoomType}></Route>
+          <Route path="/RoomType" exact component={Roomtypeform}></Route>
 
           </Switch>
     </div>

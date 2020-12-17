@@ -10,6 +10,10 @@ class HotelRegister extends Component {
       <label for="email">Email</label>
       <input type="email" className="form-control" id="email" placeholder="Email"/>
     </div>
+    <div className="form-group">
+    <label for="mobile">Password</label>
+    <input type="text" className="form-control" id="password" placeholder="Password"/>
+  </div>
     
     <div className="form-group col-md-6">
       <label for="firstname">First Name</label>
@@ -25,6 +29,10 @@ class HotelRegister extends Component {
     <input type="text" className="form-control" id="lastname" placeholder="Last Name"/>
   </div>
   <div className="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" className="form-control" id="mobile" placeholder="Mobile"/>
+  </div>
+   <div className="form-group">
     <label for="mobile">Mobile</label>
     <input type="text" className="form-control" id="mobile" placeholder="Mobile"/>
   </div>

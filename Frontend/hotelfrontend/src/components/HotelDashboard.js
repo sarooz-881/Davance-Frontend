@@ -19,7 +19,7 @@ class HotelDashboard extends Component {
                 <a className="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab">Profile</a>
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#Booking" role="tab">New Booking</a>
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#Upload" role="tab">Upload Information</a>
-                <a className="list-group-item list-group-item-action" data-toggle="list" href="#package" role="tab">Hotel Package</a>
+                <a className="list-group-item list-group-item-action" data-toggle="list" href="#package" role="tab">Hotel Services</a>
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#Gallery" role="tab">Gallery</a>
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#RoomType" role="tab">Room Type Information</a>
                 
