@@ -45,6 +45,19 @@
   .login-box .user-box {
     position: relative;
   }
+  .login-box .user-box-select {
+    display: flex;
+    flex-direction: column;
+    color: #03e9f4;
+    font-size: 12px;    
+    font-weight: 600;
+  }
+  .login-box .user-box-select .user-box-select-item {
+    margin: 1.2rem 0;
+    color: #333333;
+    font-size: 12px;    
+    font-weight: 600;
+  }
   .login-box .user-box p{
     font-size: 12px;    
     font-weight: 600;
