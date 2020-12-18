@@ -14,12 +14,12 @@ $(".custom-file-input").on("change", function() {
             <div className="container-fluid ">
                 <h2 className="ml-3 mb-4 font-weight-bold">Gallery Upload</h2>
                 <form>
-                <div className="custom-file">
+                <div className="custom-file mb-4">
                   <input type="file" className="custom-file-input" id="customFile"/>
                   <label className="custom-file-label" for="customFile">Choose file</label>
                 </div>
                 </form>
-         <button type="button" className="btn btn-info mt-3 font-weight-bold ">Upload</button>
+              <button type="button" className="btn btn-info mt-3 font-weight-bold ">Upload</button>
             </div>
         </div>
     )}}

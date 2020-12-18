@@ -17,6 +17,7 @@ import Hotelprofile from "./components/Hotelprofile";
 import Gallery from "./components/Gallery";
 import RoomType from "./components/RoomType";
 import Roomtypeform from "./components/Roomtypeform";
+import CustomerDashboard from "./components/CustomerDashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -26,11 +27,15 @@ function App() {
           <Route path="/" exact component={Home}></Route>
           <Route path="/Signup" exact component={Signup}></Route>
           <Route path="/Signin" exact component={Signin}></Route>
+
+          {/* Admin Dashboard */}
           <Route path="/Admindashboard" exact component={Admindashboard}></Route>
           <Route path="/Booking" exact component={Booking}></Route>
           <Route path="/Users" exact component={Users}></Route>
           <Route path="/Register" exact component={HotelRegister}></Route>
           <Route path="/Profile" exact component={Profile}></Route>
+
+          {/* Hotel Dashboard */}
           <Route path="/HotelDashboard" exact component={HotelDashboard}></Route>
           <Route path="/Booking" exact component={HotelBooking}></Route>
           <Route path="/HotelInformation" exact component={HotelInformation}></Route>
@@ -38,7 +43,10 @@ function App() {
           <Route path="/Hotelprofile" exact component={Hotelprofile}></Route>
           <Route path="/Gallery" exact component={Gallery}></Route>
           <Route path="/RoomType" exact component={RoomType}></Route>
-          <Route path="/RoomType" exact component={Roomtypeform}></Route>
+          <Route path="/RoomTypeForm" exact component={Roomtypeform}></Route>
+
+          {/* CustomerDashboard */}
+          <Route path="/CustomerDashboard" exact component={CustomerDashboard}></Route>
 
           </Switch>
     </div>

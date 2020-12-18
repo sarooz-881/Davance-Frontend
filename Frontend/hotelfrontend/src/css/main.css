@@ -305,3 +305,20 @@
 .roomtype .btn {
   font-size: 16px;
 }
+
+/* Room Type Form */
+.roomtypeform{
+  width: 534px !important;
+    margin-top: 70px !important;
+}
+.roomtypeform label{
+  font-size:16px;
+}
+.roomtypeform input[type="text"], input[type="file"]{
+  padding: 16px 15px;
+  font-size: 16px;
+}
+.roomtypeform button{
+  font-size: 16px;
+  font-weight: 600;
+}

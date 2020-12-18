@@ -57,7 +57,7 @@ class Hotelprofile extends Component {
                                             </div>
                                         </div>
                                         <div className="row">
-                                            <div class="col-md-6">
+                                            <div className="col-md-6">
                                                 <label>Role</label>
                                             </div>
                                             <div className="col-md-6">
