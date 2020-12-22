@@ -3,6 +3,10 @@
     padding: 0px;
     margin: 0px;
   }
+  body {
+    background-color:     #f4f4f4 !important;
+  
+  }
  
   /* navbar */
   .navbar .navbar-header .navbar-brand{
@@ -321,4 +325,125 @@
 .roomtypeform button{
   font-size: 16px;
   font-weight: 600;
+}
+
+
+
+/* Customer Dashboard */
+.customerdashboard{
+  margin-left: -174px;
+  margin-top: 0px;
+}
+.customerdashboard .nav .nav-item{
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+.customerdashboard nav{
+  background-color: white;
+  margin-left: 8px;
+}
+
+
+.customerdashboard .sideinformation a{
+    font-size: 16px;
+}
+.customerdashboard .font30{
+  font-weight: 700;
+  font-size: 30px;
+  line-height:30px;
+}
+.customerdashboard .font18{
+  font-size:18px;
+  line-height: 18px;
+  color: #4a4a4a;
+}
+
+.customerdashboard section .tab-content::before{
+  content: '';
+width: 6px;
+height: 50px;
+background-color: #adadad;
+position: absolute;
+top: 42px;
+left: 15px;
+}
+.customerdashboard .nav-pills-custom .nav-link {
+  color: #aaa;
+  background: #fff;
+  position: relative;
+}
+
+.customerdashboard .nav-pills-custom .nav-link.active {
+  color: #45b649;
+  background: #fff;
+}
+.customerdashboard .verticaltab label{
+  font-size: 16px;
+}
+.customerdashboard .verticaltab p{
+  font-size: 13px;
+}
+
+.customerdashboard #v-pills-messages .cancallation{
+  width: 292px;
+    height: 192px;
+    margin: -25px 0 0 -22px;
+}
+.customerdashboard #v-pills-messages .heads{
+  margin: -18px 0 0 -22px;
+  color: #0080ff;
+}
+
+.customerdashboard #v-pills-messages .format-address{
+  margin: 0 0 0 -22px;
+  color: #736F6E;
+}
+
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.customerdashboard .starrating > label:before { 
+  content: "\f005"; /* Star */
+  margin: 2px;
+  font-size: 8em;
+  font-family: FontAwesome;
+  display: inline-block; 
+}
+
+.customerdashboard .starrating > label
+{
+  color: #222222; /* Start color when not clicked */
+}
+
+.customerdashboard .starrating > input:checked ~ label
+{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+.customerdashboard .starrating > input:hover ~ label
+{ color: #ffca08 ;  } /* Set yellow color when star hover */
+
+
+
+/* Add indicator arrow for the active tab */
+@media (min-width: 992px) {
+ .customerdashboard .nav-pills-custom .nav-link::before {
+      content: '';
+      display: block;
+      border-top: 8px solid transparent;
+      border-left: 10px solid #fff;
+      border-bottom: 8px solid transparent;
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      transform: translateY(-50%);
+      opacity: 0;
+  }
+}
+
+.customerdashboard .nav-pills-custom .nav-link.active::before {
+  opacity: 1;
+}
+.customerdashboard section{
+  margin: -44px 0px 0px -16px;
 }
