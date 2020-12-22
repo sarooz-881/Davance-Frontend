@@ -7,6 +7,62 @@
     background-color:     #f4f4f4 !important;
   
   }
+
+  /* Confirm Booking */
+  .CBooking{
+    height: 204px;
+  }
+
+  .mr{
+    margin-left:8px;
+  }
+  /* Rating  */
+  .rating{
+    position: absolute;
+    top:16%;
+    left:17%;
+    transform:translate(-50%, -50%) rotateY(180deg);
+    display:flex;
+  }
+  .ratings{
+    top:32%;
+  }
+  .rating input{
+    display: none;
+  }
+  .rating label{
+    display: block;
+    cursor: pointer;
+    width:34px;
+   }
+ 
+  
+  .rating label:before{
+    content:'\f005';
+    font-family:'Font Awesome 5 Pro';
+    position: relative;
+    display: block;
+    font-size:19px;
+    color:wheat;
+  }
+  .rating label:after{
+    content:'\f005';
+    font-family:'Font Awesome 5 Pro';
+    position: absolute;
+    display: block;
+    font-size:19px;
+    color:#1f9cff;
+    top:0;
+    opacity:0;
+    transition:.5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+  }
+  
+  .rating label:hover:after,
+  .rating label:hover ~ label:after,
+  .rating input:checked ~ label:after{
+    opacity:1;
+  }
  
   /* navbar */
   .navbar .navbar-header .navbar-brand{
@@ -387,43 +443,72 @@ left: 15px;
   font-size: 13px;
 }
 
-.customerdashboard #v-pills-messages .cancallation{
+.customerdashboard #v-pills-messages .reviewimage, .customerdashboard #v-pills-settings .reviewimage{
   width: 292px;
     height: 192px;
     margin: -25px 0 0 -22px;
 }
-.customerdashboard #v-pills-messages .heads{
+/* Reviews*/
+.customerdashboard #v-pills-messages .heads,.customerdashboard #v-pills-settings .heads{
   margin: -18px 0 0 -22px;
   color: #0080ff;
 }
-
-.customerdashboard #v-pills-messages .format-address{
+/* Reviews */
+.customerdashboard #v-pills-messages .format-address,.customerdashboard #v-pills-settings .format-address{
   margin: 0 0 0 -22px;
   color: #736F6E;
 }
 
-.starrating > input {display: none;}  /* Remove radio buttons */
 
-.customerdashboard .starrating > label:before { 
-  content: "\f005"; /* Star */
-  margin: 2px;
-  font-size: 8em;
-  font-family: FontAwesome;
-  display: inline-block; 
+/* Reviewed form  */
+.customerdashboard #v-pills-messages .feedbackforms{
+  padding: 45px 0 0 0px;
+  margin-left: -18px;
+}
+.customerdashboard #v-pills-messages .feedbackforms label{
+  font-size: 14px;
+}
+.customerdashboard #v-pills-messages .feedbackforms input[type=text]{
+  padding: 19px 6px 19px 18px;
+  font-size: 13px;
+}
+.customerdashboard #v-pills-messages .feedbackforms textarea{
+  padding: 13px 13px 0 13px;
+  font-size: 14px;
+}
+.customerdashboard #v-pills-messages .feedbackforms .options{
+  height: 33px;
+  font-size: 12px;
+}
+.customerdashboard #v-pills-messages .feedbackforms button{
+  padding: 6px 30px 6px 30px;
+  font-size: 17px;
+  font-weight: 600;
 }
 
-.customerdashboard .starrating > label
-{
-  color: #222222; /* Start color when not clicked */
+/* Confirm Booking */
+
+.customerdashboard #v-pills-settings .roomtype{
+    margin-left: -20px;  
+    font-weight: 600;
 }
-
-.customerdashboard .starrating > input:checked ~ label
-{ color: #ffca08 ; } /* Set yellow color when star checked */
-
-.customerdashboard .starrating > input:hover ~ label
-{ color: #ffca08 ;  } /* Set yellow color when star hover */
-
-
+.customerdashboard #v-pills-settings .hotelservices{
+  margin-left: -20px;  
+  color: #008009;
+}
+.customerdashboard #v-pills-settings .confirmbooking{
+  margin-top: -11px;
+  color: #FF7B33;
+}
+.customerdashboard #v-pills-settings .gs{
+  margin: -10px 0 0 -20px;
+  color:#6b6b6b
+}
+.customerdashboard #v-pills-settings .price{
+  margin: -2px 0 0 -20px;
+  font-size: 22px;
+  font-weight: 600;
+}
 
 /* Add indicator arrow for the active tab */
 @media (min-width: 992px) {

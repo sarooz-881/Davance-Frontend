@@ -3,10 +3,11 @@ import "../css/main.css";
 import hotelroom from "../image/hotelroom.jpeg"
 
 
-class  CustomerDashboard extends Component {
+class CustomerDashboard extends Component {
   
     render() {
-      
+
+        
         return(
             <div className="customerdashboard">
                 <div className="container">
@@ -42,9 +43,9 @@ class  CustomerDashboard extends Component {
                         <i className="fa fa-user-circle-o mr-2"></i>
                         <span className="font-weight-bold small text-uppercase">Personal information</span></a>
 
-                    <a className="nav-link mb-3 p-3 shadow" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    {/* <a className="nav-link mb-3 p-3 shadow" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                         <i className="fa fa-calendar-minus-o mr-2"></i>
-                        <span className="font-weight-bold small text-uppercase">Bookings</span></a>
+                        <span className="font-weight-bold small text-uppercase">Bookings</span></a> */}
 
                     <a className="nav-link mb-3 p-3 shadow" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                         <i className="fa fa-star mr-2"></i>
@@ -118,30 +119,101 @@ class  CustomerDashboard extends Component {
                     
 
                     
-                    <div className="tab-pane fade shadow rounded bg-white p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    {/* <div className="tab-pane fade shadow rounded bg-white p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <h4 className="font-italic mb-4">Bookings</h4>
                         <p className="font-italic text-muted mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
+                    </div> */}
                     
-                    {/* Cancellation */}
+                    {/* Reviews */}
                     <div className="tab-pane fade shadow rounded bg-white p-5" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                        <div className="row">
                        <div className="col-5">
-                        <img className="cancallation" src={hotelroom}/>
+                        <img className="reviewimage" src={hotelroom}/>
                         </div>
 
                         <div className="col-6">
                           <h3 className="heads font-weight-bold">The Fern Residency</h3>
                           <p className="format-address">CG Landmark | Bharatpur Heights 44200, Nepal</p>
-                          
+                          <div className="rating pb-5">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <form className="feedbackforms">
+                          <div className="form-group">
+                            <label for="exampleFormControlInput1">Title of your review</label>
+                            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+                          </div>
+
+
+                          <div className="form-group">
+                            <label for="exampleFormControlTextarea1">Your review</label>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+
+                          <div className="form-group">
+                            <label for="inputState">When did you travel?</label>
+                            <select id="inputState" className="form-control options">
+                              <option selected>Select One</option>
+                              <option>January</option>
+                              <option>February</option>
+                              <option>March</option>
+                              <option>April</option>
+                              <option>May</option>
+                              <option>June</option>
+                              <option>July</option>
+                              <option>Augest</option>
+                              <option>September</option>
+                              <option>October</option>
+                              <option>November</option>
+                              <option>December</option>
+                            </select>
+
+                            <button type="submit" className=" mt-4 btn btn-primary">Submit</button>
+                            </div>
+                          </form>
                          </div>
                        </div>
                         </div>
                     
                     {/* Confirm Booking */}
-                    <div className="tab-pane fade shadow rounded bg-white p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <h4 className="font-italic mb-4">Confirm booking</h4>
-                        <p className="font-italic text-muted mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div className="tab-pane fade shadow rounded bg-white p-5 CBooking" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" >
+                      <div className="row">
+                        <div className="col-5">
+                        <img className="reviewimage" src={hotelroom}/>
+                        </div>
+                        <div className="col-6">
+                        <h3 className="heads font-weight-bold">The Fern Residency</h3>
+                          <p className="format-address">CG Landmark | Bharatpur Heights 44200, Nepal</p>
+                          <div className="rating ratings pb-5">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                             </div>
+                             <p className="mt-5 roomtype mb-1">Double Room</p>
+                             <p className="hotelservices font-weight-bold"> Included Breakfast</p>
+                             {/* Show the Confirm Booking */}
+                             <p className="hotelservices font-weight-bold confirmbooking"> Confirm Booking</p>
+                             <div className="row gs">
+                             <div className="sm-6">  <p className="stay">1 night</p></div><div className="sm-6 mr"> <p className="guest">2 adult</p></div>                             
+                             </div>
+                             <p className="price">NPR 1300</p>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -157,7 +229,7 @@ class  CustomerDashboard extends Component {
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    {/* Reviews */}
+    {/* Cancallation*/}
     <div id="menu2" className="container tab-pane fade"><br/>
       <h3>Menu 2</h3>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
