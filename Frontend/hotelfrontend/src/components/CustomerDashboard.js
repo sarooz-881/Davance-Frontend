@@ -1,6 +1,7 @@
 import React, { Component}from "react";
 import "../css/main.css";
 import hotelroom from "../image/hotelroom.jpeg"
+import dollaricon from "../image/dollaricon.png"
 
 
 class CustomerDashboard extends Component {
@@ -192,6 +193,8 @@ class CustomerDashboard extends Component {
                         <div className="col-6">
                         <h3 className="heads font-weight-bold">The Fern Residency</h3>
                           <p className="format-address">CG Landmark | Bharatpur Heights 44200, Nepal</p>
+
+                          {/* Start Rating */}
                           <div className="rating ratings pb-5">
                             <input type="radio" name="star" id="star1"/>
                             <label for="star1"></label>
@@ -203,7 +206,9 @@ class CustomerDashboard extends Component {
                             <label for="star4"></label>
                             <input type="radio" name="star" id="star5"/>
                             <label for="star5"></label>                            
-                             </div>
+                          </div>
+                              {/* End Rating */}
+
                              <p className="mt-5 roomtype mb-1">Double Room</p>
                              <p className="hotelservices font-weight-bold"> Included Breakfast</p>
                              {/* Show the Confirm Booking */}
@@ -224,22 +229,151 @@ class CustomerDashboard extends Component {
     </div>
     
     {/* Booking */}
-    <div id="menu1" className="container tab-pane fade"><br/>
-      <h3>Menu 1</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+    <div id="menu1" className="container tab-pane fade Booking"><br/>
+     
+     <div className="shadow rounded bg-white p-5 CBooking CBookings" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" >
+                      <div className="row">
+                        <div className="col-5">
+                        <img className="reviewimage" src={hotelroom}/>
+                        </div>
+                        <div className="col-6">
+                        <h3 className="heads font-weight-bold">The Fern Residency</h3>
+                          <p className="format-address">CG Landmark | Bharatpur Heights 44200, Nepal</p>
+
+                          {/* Start Rating */}
+                          <div className="rating ratings pb-5">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                              {/* End Rating */}
+
+                             <p className="mt-5 roomtype mb-1">Double Room</p>
+                             <ul className="services">
+                               <li className="serv">Included Breakfast</li>
+                               <li className="serv">WIFI</li>
+                               <li className="serv">Swimming</li>
+                             </ul>
+                              {/* Show the Confirm Booking */}
+                              <div className="row">
+                                <div className="sm-5"><p className="hotelservices font-weight-bold confirmbooking"> Booking</p></div>
+                                <div className="sm-6"><button type="button" className="btn btn-info cancel">Cancel</button></div>
+                              </div>
+                           
+                             <div className="row gs">
+                             <div className="sm-6">  <p className="stay">1 night</p></div><div className="sm-6 mr"> <p className="guest">2 adult</p></div>                             
+                             </div>
+                             
+                             <p className="price">NPR 1300</p>
+                        </div>
+                      </div>
+                    </div>
+      </div>
 
     {/* Cancallation*/}
-    <div id="menu2" className="container tab-pane fade"><br/>
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
+    <div id="menu2" className="container tab-pane fade cancellations"><br/>
+    <div className="shadow rounded bg-white p-5 CBooking CBookings" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" >
+                      <div className="row">
+                        <div className="col-5">
+                        <img className="reviewimage" src={hotelroom}/>
+                        </div>
+                        <div className="col-6">
+                        <h3 className="heads font-weight-bold">The Fern Residency</h3>
+                          <p className="format-address">CG Landmark | Bharatpur Heights 44200, Nepal</p>
+
+                          {/* Start Rating */}
+                          <div className="rating ratings pb-5">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                              {/* End Rating */}
+
+                             <p className="mt-5 roomtype mb-1">Double Room</p>
+                             <ul className="services">
+                               <li className="serv">Included Breakfast</li>
+                               <li className="serv">WIFI</li>
+                               <li className="serv">Swimming</li>
+                             </ul>
+                              {/* Show the Confirm Booking */}
+                              <div className="row mb-3">
+                                <div className="sm-5"><p className="hotelservices font-weight-bold confirmbooking"> Cancel</p></div>
+                                
+                              </div>
+                           
+                             <div className="row gs">
+                             <div className="sm-6">  <p className="stay">1 night</p></div><div className="sm-6 mr"> <p className="guest">2 adult</p></div>                             
+                             </div>
+                             
+                             <p className="price">NPR 1300</p>
+                        </div>
+                      </div>
+                    </div></div>
 
     {/* My Wallet */}
     <div id="menu3" className="container tab-pane fade"><br/>
-      <h3>Menu 3</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
+
+                      <div className="container-fluid">
+                      <div className="mywallet">
+                       <div className="mywalletheader text-center">
+                        <h2 className="font34 font-weight-bold mb-4">
+                         <span className="mr-3"> <i className="fa fa-dollar"/></span>
+                          0
+                          </h2>
+                          <p className="font14 font-weight-bold">Wallet balance</p>
+                       </div>
+                       <div className="walletBalanceSection">
+
+                       <div className="row">
+                        <div className="col-md-2">
+                         <img src={dollaricon} className="dollaricon"/>
+                        </div>
+                        <div className="col-md-4">
+                          <p className="font-weight-bold mt-4">My Cash</p>
+                        </div>
+                        <div className="col-md-6">
+                          <p className="wp font-weight-bold;">
+                          <span className="mr-3"> <i className="fa fa-dollar"/></span>
+                          0
+                          </p>
+                          </div>                       
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-2">
+                         <img src={dollaricon} className="dollaricon"/>
+                        </div>
+                        <div className="col-md-4">
+                          <p className="font-weight-bold mt-4">My Reward</p>
+                        </div>
+                        <div className="col-md-6">
+                          <p className="wp font-weight-bold;">
+                          <span className="mr-3"> <i className="fa fa-dollar"/></span>
+                          0
+                          </p>
+                          </div>                       
+                      </div>
+
+                    </div>
+                    </div>
+                    
+                      </div>
+                   
+      </div>
   </div>
 </div>
             </div>

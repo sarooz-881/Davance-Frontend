@@ -12,6 +12,9 @@
   .CBooking{
     height: 204px;
   }
+  .CBookings{
+    height: 208px;
+  }
 
   .mr{
     margin-left:8px;
@@ -25,7 +28,7 @@
     display:flex;
   }
   .ratings{
-    top:32%;
+    top:28%;
   }
   .rating input{
     display: none;
@@ -63,7 +66,57 @@
   .rating input:checked ~ label:after{
     opacity:1;
   }
+/* Rating  */
+  .rating{
+    position: absolute;
+    top:16%;
+    left:17%;
+    transform:translate(-50%, -50%) rotateY(180deg);
+    display:flex;
+  }
+  .ratings{
+    top:32%;
+  }
+  .rating input{
+    display: none;
+  }
+  .rating label{
+    display: block;
+    cursor: pointer;
+    width:34px;
+   }
  
+  
+  .rating label:before{
+    content:'\f005';
+    font-family:'Font Awesome 5 Pro';
+    position: relative;
+    display: block;
+    font-size:19px;
+    color:wheat;
+  }
+
+  .rating label:after{
+    content:'\f005';
+    font-family:'Font Awesome 5 Pro';
+    position: absolute;
+    display: block;
+    font-size:19px;
+    color:#1f9cff;
+    top:0;
+    opacity:0;
+    transition:.5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+  }
+  
+   .rating label:hover:after,
+  .rating label:hover ~ label:after,
+  .rating input:checked ~ label:after{
+    opacity:1;
+  } 
+
+  
+
   /* navbar */
   .navbar .navbar-header .navbar-brand{
     padding-top: 6px;
@@ -531,4 +584,168 @@ left: 15px;
 }
 .customerdashboard section{
   margin: -44px 0px 0px -16px;
+}
+
+
+/* Booking */
+.Booking #v-pills-settings, .cancellations #v-pills-settings{
+  width: 816px;
+    margin-left: 144px;
+}
+.Booking #v-pills-settings .format-address ,.Booking #v-pills-settings .stay,.Booking #v-pills-settings .guest, .Booking #v-pills-settings .roomtype,.Booking #v-pills-settings  .hotelservices,
+.Booking #v-pills-settingsconfirmbooking, .cancellations #v-pills-settings .format-address ,.cancellations #v-pills-settings .stay,.cancellations #v-pills-settings .guest, .cancellations #v-pills-settings .roomtype,.cancellations #v-pills-settings  .hotelservices,
+.cancellations #v-pills-settingsconfirmbooking
+{
+  font-size:12px
+}
+.Booking #v-pills-settings  .services, .cancellations #v-pills-settings  .services{
+    display: flex;
+    list-style: none;
+    margin: 0px 0px 11px -20px;
+  }
+  .Booking #v-pills-settings .services .serv, .cancellations #v-pills-settings .services .serv{
+    margin: 0 6px 0px 0;
+    color: #008009;
+    font-size: 12px;
+    font-weight: 600;    
+  }
+  .Booking #v-pills-settings .gs, .cancellations #v-pills-settings .gs{
+    margin-top:-6px;
+  }
+
+  .Booking #v-pills-settings .confirmbooking, .cancellations #v-pills-settings .confirmbooking{
+    margin: -3px 14px 0px -6px;
+  }
+  .Booking #v-pills-settings .cancel,  .cancellations #v-pills-settings .cancel{
+    padding: 4px 15px 1px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: -6px 0px 7px 22px;
+  }
+  .Booking #v-pills-settings .reviewimage, .cancellations #v-pills-settings .reviewimage{
+    height: 197px;
+  }
+
+
+  /* MY Wallet */
+
+
+  .mywallet{
+    width:450px;
+    background: #fff;
+    border-radius: 10px;
+    margin-left: 330px;
+  }
+  .mywallet .mywalletheader{
+    border-radius: 10px 10px 0 0;
+    padding: 30px 0;
+    background-image: linear-gradient(255deg, #3023ae, #c86dd7);
+  }
+  .mywallet .font34{
+    font-size: 34px;
+    color: white;
+    line-height: 33px;
+  }
+  .mywallet .font14{
+    font-size: 16px;
+    color: #fff;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 4px;
+  }
+  .mywallet .dollaricon{
+     width: 50px;
+    height: 50px;
+    margin: 8px 5px 5px 12px;
+  }
+.mywallet .walletBalanceSection p{
+  font-size: 24px;
+}
+.mywallet .walletBalanceSection .wp{
+  font-size: 25px;  
+  margin: 12px 0 0 144px;
+}
+
+
+/* Main Home Page */
+
+.homepage{
+ background-image: url('../image/bg-agoda-homepage.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 320px;
+  content: "";
+  border-bottom-left-radius: 48px;
+  margin-top:-20px;
+}
+.homepage .welcomemessage{
+  color:#fff;
+  text-align: center;
+  margin-top: 76px
+}
+.homepage .welcomemessage h1{
+  line-height: 1.3;
+   overflow: hidden;
+  -webkit-animation: fadein 1s;
+  animation: fadein 1s;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.homepage .con{
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+}
+.homepage .hotelsearch{
+  width: 90%;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
+  border-radius: 16px;
+  background-color: rgb(248, 247, 249);
+  padding: 32px 48px 48px;
+  margin-top: 70px;
+}
+
+.homepage .searchbox{
+  padding: 0;
+  height: 66px;
+  border-color: #dddfe2;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid;
+  font-size: 16px;
+  margin: 0 0 12px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.homepage .fa-search{
+
+  color: #333;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  padding-right: 16px;
+  padding: 20px 15px;
+  display: inline-block;
+  vertical-align: middle;
+ 
+}
+.homepage .inputs{
+  width: calc(100% - 60px);
+    vertical-align: middle;
+    display: inline-block;
+}
+.homepage input[type="text"]{
+ font-size: 16px;
+    color: #2a2a2e;
+    background-color: #fff;
+    line-height: 1.25;
+    font-weight: 400;
+    padding: 19px 14px;
+    border:none
 }

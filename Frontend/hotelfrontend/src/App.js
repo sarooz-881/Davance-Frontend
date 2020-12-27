@@ -18,6 +18,7 @@ import Gallery from "./components/Gallery";
 import RoomType from "./components/RoomType";
 import Roomtypeform from "./components/Roomtypeform";
 import CustomerDashboard from "./components/CustomerDashboard";
+import backgroundimages from "./image/bg-agoda-homepage.png";
 function App() {
   return (
     <BrowserRouter>
@@ -56,7 +57,22 @@ function App() {
 
 const Home = () => {
   return (
-    <div></div>
+    <div className="homepage">
+      <div className="welcomemessage container">
+        <h1 className="font-weight-bold mb-4 mt-0 ">Hotel, Resorts & More</h1>
+        <h2>Get the best on prices 2,000,000+ properties, worldwide</h2>
+      </div>
+            <div className="container con">
+              <div className="hotelsearch">
+                  <div className="searchbox iconbox">
+                  <i class="fa fa-search"/>
+                  <div className="inputs">
+                    <input type="text" placeholder="Enter a destination"/>
+                  </div>
+                  </div>
+              </div>
+      </div>
+    </div>
 
   )
 }

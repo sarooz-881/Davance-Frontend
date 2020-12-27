@@ -21,12 +21,13 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse font-weight-bold " id="navbarSupportedContent">
           <div className="navbar-header ">
-      <Link className="navbar-brand" to="/">Davance</Link>
-     </div>
+           <Link className="navbar-brand" to="/">Davance</Link>
+             </div>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
                 <Link className="nav-link" to="/">
-                  Home <span className="sr-only">(current)</span>
+                  Hotel & Home
+                 <span className="sr-only">(current)</span>
                 </Link>
               </li>
               <li className="nav-item ">
@@ -34,18 +35,6 @@ class Navbar extends Component {
                   Our Services
                 </Link>
               </li>
-
-              <li className="nav-item dropdown">
-      <Link className="nav-link dropdown-toggle text-light" to="#" id="navbardrop" data-toggle="dropdown">
-        Dropdown link
-      </Link>
-      <div className="dropdown-menu">
-        <Link className="dropdown-item" to="#">Link 1</Link>
-        <Link className="dropdown-item" to="#">Link 2</Link>
-        <Link className="dropdown-item" to="#">Link 3</Link>
-      </div>
-    </li>
-
               <li className="nav-item ">
                 <Link className="nav-link text-white" to="Contact">
                   contact
@@ -57,9 +46,7 @@ class Navbar extends Component {
       <li className="nav-item mr-4 text-light"><Link to="Signup" className="text-light"><span className="glyphicon glyphicon-user text-light"></span> Sign Up</Link></li>
       <li className="nav-item mr-4"> <Link to="Signin" className="text-light"><span className="glyphicon glyphicon-log-in text-light"></span> Login</Link></li>
     </ul>
-          </div>
-       
-        
+          </div>   
         </nav>
       </div>
         )
