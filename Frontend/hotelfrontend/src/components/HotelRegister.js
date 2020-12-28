@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import "../css/main.css";
 
 class HotelRegister extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      
+    }
+
+  }
     render() {return(<div className="register">
         <form>
   <div className="form-row">
