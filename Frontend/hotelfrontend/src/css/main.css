@@ -695,12 +695,7 @@ left: 15px;
   font-size: 24px;
 }
 
-.homepage .con{
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  display: flex;
-}
+/* Booking */
 .homepage .hotelsearch{
   width: 90%;
   position: relative;
@@ -709,6 +704,7 @@ left: 15px;
   background-color: rgb(248, 247, 249);
   padding: 32px 48px 48px;
   margin-top: 70px;
+  margin-left: 56px;
 }
 
 .homepage .searchbox{
@@ -842,4 +838,104 @@ margin-left: 12px;
 .homepage .hotelsearch .collapse .roo{
   margin: 4px 0 0px 15px;
   font-size: 15px;
+}
+ .con .searchbutton{
+  display: flex;
+  justify-content: center;
+  margin-top: -35px;
+}
+.con .searchbutton .searchs{
+  position: relative;
+    border: medium none;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: rgb(83, 146, 249);
+    color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 1px;
+    transition: all 0.15s ease-in-out 0s;
+    user-select: none;
+    width: 490px;
+    height: 64px;
+    font-size:30px;
+    
+}
+
+
+/* All Hotel */
+.hotelsall{
+  margin-top:33px;
+}
+
+.hotelsall .card-deck {
+  margin: 0 -15px;
+  justify-content: space-between;
+  font-size:12px;
+}
+
+.hotelsall .card-deck .card {
+  margin: 0 0 1rem;
+}
+
+.hotelsall .card-title{
+  font-weight:bold;
+}
+
+.hotelsall .card-deck .card{
+  border-radius: 16px;
+  border:none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
+}
+.hotelsall .card-deck .card .card-img-top{
+  border-top-left-radius: 8% !important;
+  border-top-right-radius: 8% !important;
+}
+.hotelsall .card-deck .card .card-text{
+  font-size:14px;
+  margin-top: -8px;
+}
+.hotelsall .card-deck .card .MR{
+  margin: 189px 0 0 37px;
+
+}
+.hotelsall .card-deck .card .PR{
+  margin: 214px 0 0 37px;
+
+}
+.hotelsall .card-deck .card .card-price{
+  margin-top:28px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f9cff;
+}
+.hotelsall .card-deck .card .card-infos{
+margin-top: -13px;
+font-size: 11px;
+}
+.hotelsall .card-deck .card .FC{
+  color: black !important;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+.hotelsall  .card-deck .card {
+    -ms-flex: 0 0 48.7%;
+    flex: 0 0 48.7%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+ .hotelsall .card-deck .card {
+    -ms-flex: 0 0 32%;
+    flex: 0 0 32%;
+  }
+}
+
+@media (min-width: 992px)
+{
+  .hotelsall .card-deck .card {
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 }

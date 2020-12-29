@@ -83,6 +83,7 @@ const Home = () => {
                   </div>
                   </div>
 
+                  <div className="row">
                   {/* Calendar */}
                   <div className="col-lg-8 col-md-8">
                   <div className="checkdate">
@@ -168,13 +169,220 @@ const Home = () => {
     </div>
                       </div>
              
-
-                    {/* Search Button */}
-                    <div className="searchbutton">
-                      
-                    </div>
+                      </div>
+                 
               </div>
+                {/* Search Button */}
+                <div className="searchbutton">
+                      <button className="searchs">Search</button>
+                    </div>
+               
       </div>
+  
+              {/* Hotels  Trending Noew*/}
+              <div className="container mt-5 hotelsall">
+                  <h1 className="font-weight-bold mb-4">Trending Now</h1>
+                  <div className="card-deck">
+    <div className="card">
+      <img className="card-img-top" src="https://picsum.photos/309/200?image=1050" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title ">Hotel Prince Plaza</h3>
+        <p className="card-text">Gyaneshwor, Kathmandu</p>
+                        {/* Start Rating */}
+                          <div className="rating MR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <p className="card-price">NPR 9,051</p>
+        <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+        <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+      </div>
+    </div>
+    <div className="card">
+      <img className="card-img-top" src="https://picsum.photos/309/200?image=1041" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title">Hotel Tayoma</h3>
+        <p className="card-text">Near J P Road, Thamel, Kathmandu</p>
+        {/* Start Rating */}
+        <div className="rating MR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <p className="card-price">NPR 9,051</p>
+                          <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+                          <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+     
+        </div>
+    </div>
+    <div className="card">
+      <img className="card-img-top" src="https://picsum.photos/309/200?image=1039" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title">Hotel Manaslu</h3>
+        <p className="card-text">Lakeside, Pokhara</p>
+        {/* Start Rating */}
+        <div className="rating MR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <p className="card-price">NPR 9,051</p>
+                          <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+                          <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+     
+      </div>
+    </div>
+    <div className="card">
+      <img classNameName="card-img-top" src="https://picsum.photos/309/200?image=1019" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title">Hotel Travel INN</h3>
+        <p className="card-text">Near Gaushala Chowk, Kathmandu</p>
+        {/* Start Rating */}
+        <div className="rating MR PR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+          <p className="card-price">NPR 9,051</p>
+          <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+          <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+     
+      </div>
+    </div>
+  </div>
+              </div>
+
+
+                {/* Hotels Recommended*/}
+                <div className="container mt-5 hotelsall">
+                  <h1 className="font-weight-bold mb-4">Hotel Recommended</h1>
+                  <div className="card-deck">
+    <div className="card">
+      <img className="card-img-top" src="https://picsum.photos/309/200?image=1050" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title ">Hotel Milarepa</h3>
+        <p className="card-text">Thamel, Kathmandu</p>
+                        {/* Start Rating */}
+                          <div className="rating MR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <p className="card-price">NPR 9,051</p>
+        <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+        <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+      </div>
+    </div>
+    <div className="card">
+      <img className="card-img-top" src="https://picsum.photos/309/200?image=1041" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title">Hotel Romantica</h3>
+        <p className="card-text">Pokhara, Lakeside, Pokhara</p>
+        {/* Start Rating */}
+        <div className="rating MR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <p className="card-price">NPR 9,051</p>
+                          <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+                          <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+     
+        </div>
+    </div>
+    <div className="card">
+      <img className="card-img-top" src="https://picsum.photos/309/200?image=1039" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title">Royal Century</h3>
+        <p className="card-text">Shahid Chowk, Chitwan</p>
+        {/* Start Rating */}
+        <div className="rating MR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+                          <p className="card-price">NPR 9,051</p>
+                          <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+                          <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+     
+      </div>
+    </div>
+    <div className="card">
+      <img classNameName="card-img-top" src="https://picsum.photos/309/200?image=1019" alt="Card image cap"/>
+      <div className="card-body">
+        <h3 className="card-title">Hotel Showland</h3>
+        <p className="card-text">Lakside, Barahi Chowkm Pokhara</p>
+        {/* Start Rating */}
+        <div className="rating MR PR ">
+                            <input type="radio" name="star" id="star1"/>
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2"/>
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3"/>
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4"/>
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5"/>
+                            <label for="star5"></label>                            
+                          </div>
+          <p className="card-price">NPR 9,051</p>
+          <p className="card-infos"><small className="text-muted">Per Room Per Night</small></p>
+          <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
+     
+      </div>
+    </div>
+  </div>
+              </div>
     </div>
 
   )
