@@ -23,12 +23,24 @@ import { enGB } from 'date-fns/locale';
 import { DateRangePicker, START_DATE, END_DATE } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import prince from "./image/prince.jpg";
+import tayoma from "./image/IMG_9146_sm.jpg";
+import Manaslu from "./image/Hotel-Mechi-Crown.jpg";
+import manasu from "./image/manasu.jpg";
+import Milarepa from "./image/IMG_9033-700x400.jpg";
+import Romantica from "./image/images.jpeg";
+import royalcentury from "./image/royalcentury.jpeg";
+import barahi from "./image/barahi.jpg";
+import HotelBookingDetail from "./components/HotelBookingDetail";
+import Footer from "./components/Footer";
+import Customerbookingform from "./components/Customerbookingform";
 function App() {
  
   return (
     <BrowserRouter>
     <div className="App">
     <Navbar/>
+    
     <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/Signup" exact component={Signup}></Route>
@@ -50,13 +62,18 @@ function App() {
           <Route path="/Gallery" exact component={Gallery}></Route>
           <Route path="/RoomType" exact component={RoomType}></Route>
           <Route path="/RoomTypeForm" exact component={Roomtypeform}></Route>
-
+         
           {/* CustomerDashboard */}
           <Route path="/CustomerDashboard" exact component={CustomerDashboard}></Route>
+
+          {/* Hotel Booking Detail */}
+           <Route path="/HotelBookingDetail" exact component={HotelBookingDetail}></Route>
+           <Route path="/Customerbookingform" exact component={Customerbookingform}></Route>
 
           </Switch>
     </div>
     </BrowserRouter>
+    
   );
 }
 
@@ -179,15 +196,15 @@ const Home = () => {
                
       </div>
   
-              {/* Hotels  Trending Noew*/}
-              <div className="container mt-5 hotelsall">
+              {/* Hotels  Trending Now*/}
+                 <div className="container mt-5 hotelsall">
                   <h1 className="font-weight-bold mb-4">Trending Now</h1>
                   <div className="card-deck">
-    <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/309/200?image=1050" alt="Card image cap"/>
+                     <div className="card">
+      <img className="card-img-top" src={prince} alt="Card image cap"/>
       <div className="card-body">
-        <h3 className="card-title ">Hotel Prince Plaza</h3>
-        <p className="card-text">Gyaneshwor, Kathmandu</p>
+      <Link to="HotelBookingDetail">  <h3 className="card-title ">Hotel Prince Plaza</h3></Link>
+      <Link to="HotelBookingDetail" >   <p className="card-text">Gyaneshwor, Kathmandu</p></Link>
                         {/* Start Rating */}
                           <div className="rating MR ">
                             <input type="radio" name="star" id="star1"/>
@@ -206,13 +223,13 @@ const Home = () => {
         <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
       </div>
     </div>
-    <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/309/200?image=1041" alt="Card image cap"/>
+                     <div className="card">
+      <img className="card-img-top" src={tayoma} alt="Card image cap"/>
       <div className="card-body">
         <h3 className="card-title">Hotel Tayoma</h3>
         <p className="card-text">Near J P Road, Thamel, Kathmandu</p>
         {/* Start Rating */}
-        <div className="rating MR ">
+        <div className="rating MR MR1">
                             <input type="radio" name="star" id="star1"/>
                             <label for="star1"></label>
                             <input type="radio" name="star" id="star2"/>
@@ -230,8 +247,8 @@ const Home = () => {
      
         </div>
     </div>
-    <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/309/200?image=1039" alt="Card image cap"/>
+                     <div className="card">
+      <img className="card-img-top" src={manasu} alt="Card image cap"/>
       <div className="card-body">
         <h3 className="card-title">Hotel Manaslu</h3>
         <p className="card-text">Lakeside, Pokhara</p>
@@ -254,8 +271,8 @@ const Home = () => {
      
       </div>
     </div>
-    <div className="card">
-      <img classNameName="card-img-top" src="https://picsum.photos/309/200?image=1019" alt="Card image cap"/>
+                     <div className="card">
+      <img className="card-img-top" src={Manaslu} alt="Card image cap"/>
       <div className="card-body">
         <h3 className="card-title">Hotel Travel INN</h3>
         <p className="card-text">Near Gaushala Chowk, Kathmandu</p>
@@ -278,7 +295,7 @@ const Home = () => {
      
       </div>
     </div>
-  </div>
+                       </div>
               </div>
 
 
@@ -286,8 +303,8 @@ const Home = () => {
                 <div className="container mt-5 hotelsall">
                   <h1 className="font-weight-bold mb-4">Hotel Recommended</h1>
                   <div className="card-deck">
-    <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/309/200?image=1050" alt="Card image cap"/>
+                  <div className="card">
+      <img className="card-img-top" src={Milarepa}/>
       <div className="card-body">
         <h3 className="card-title ">Hotel Milarepa</h3>
         <p className="card-text">Thamel, Kathmandu</p>
@@ -309,8 +326,8 @@ const Home = () => {
         <p className="card-text"><small className="text-muted FC"><i className="fa fa-check"></i><span className="ml-2">Free Cancallation</span></small></p>
       </div>
     </div>
-    <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/309/200?image=1041" alt="Card image cap"/>
+                   <div className="card">
+      <img className="card-img-top" src={Romantica} alt="Card image cap"/>
       <div className="card-body">
         <h3 className="card-title">Hotel Romantica</h3>
         <p className="card-text">Pokhara, Lakeside, Pokhara</p>
@@ -333,8 +350,8 @@ const Home = () => {
      
         </div>
     </div>
-    <div className="card">
-      <img className="card-img-top" src="https://picsum.photos/309/200?image=1039" alt="Card image cap"/>
+                   <div className="card">
+      <img className="card-img-top" src={royalcentury} alt="Card image cap"/>
       <div className="card-body">
         <h3 className="card-title">Royal Century</h3>
         <p className="card-text">Shahid Chowk, Chitwan</p>
@@ -357,8 +374,8 @@ const Home = () => {
      
       </div>
     </div>
-    <div className="card">
-      <img classNameName="card-img-top" src="https://picsum.photos/309/200?image=1019" alt="Card image cap"/>
+                   <div className="card">
+      <img className="card-img-top" src={barahi} alt="barahi"/>
       <div className="card-body">
         <h3 className="card-title">Hotel Showland</h3>
         <p className="card-text">Lakside, Barahi Chowkm Pokhara</p>
@@ -381,9 +398,16 @@ const Home = () => {
      
       </div>
     </div>
-  </div>
+                   </div>
+
+            
               </div>
+
+              {/* Footer */}
+              <Footer/>
+      
     </div>
+    
 
   )
 }
