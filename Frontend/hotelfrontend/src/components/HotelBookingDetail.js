@@ -7,6 +7,7 @@ import { startOfDay } from "date-fns";
 import starpng from "../image/star.png";
 import bed from "../image/singlebed.jpeg";
 import Customerbookingform from "./Customerbookingform";
+
 class HotelBookingDetail extends Component {
  
     render() {
@@ -432,6 +433,7 @@ class HotelBookingDetail extends Component {
                 {/* End Row */}
 
                   </div>
+                  <Footer/>
                
  </div>
            
