@@ -34,6 +34,7 @@ import barahi from "./image/barahi.jpg";
 import HotelBookingDetail from "./components/HotelBookingDetail";
 import Footer from "./components/Footer";
 import Customerbookingform from "./components/Customerbookingform";
+import SearchhHotel from "./components/SearchHotel";
 function App() {
  
   return (
@@ -226,8 +227,8 @@ const Home = () => {
                      <div className="card">
       <img className="card-img-top" src={tayoma} alt="Card image cap"/>
       <div className="card-body">
-        <h3 className="card-title">Hotel Tayoma</h3>
-        <p className="card-text">Near J P Road, Thamel, Kathmandu</p>
+     <Link to="HotelBookingDetail">   <h3 className="card-title">Hotel Tayoma</h3></Link>
+     <Link to="HotelBookingDetail"> <p className="card-text">Near J P Road, Thamel, Kathmandu</p></Link>
         {/* Start Rating */}
         <div className="rating MR MR1">
                             <input type="radio" name="star" id="star1"/>
@@ -250,8 +251,8 @@ const Home = () => {
                      <div className="card">
       <img className="card-img-top" src={manasu} alt="Card image cap"/>
       <div className="card-body">
-        <h3 className="card-title">Hotel Manaslu</h3>
-        <p className="card-text">Lakeside, Pokhara</p>
+      <Link to="HotelBookingDetail">    <h3 className="card-title">Hotel Manaslu</h3></Link>
+      <Link to="HotelBookingDetail">  <p className="card-text">Lakeside, Pokhara</p></Link>
         {/* Start Rating */}
         <div className="rating MR ">
                             <input type="radio" name="star" id="star1"/>
@@ -274,8 +275,8 @@ const Home = () => {
                      <div className="card">
       <img className="card-img-top" src={Manaslu} alt="Card image cap"/>
       <div className="card-body">
-        <h3 className="card-title">Hotel Travel INN</h3>
-        <p className="card-text">Near Gaushala Chowk, Kathmandu</p>
+      <Link to="HotelBookingDetail" >    <h3 className="card-title">Hotel Travel INN</h3></Link>
+      <Link to="HotelBookingDetail" >   <p className="card-text">Near Gaushala Chowk, Kathmandu</p></Link>
         {/* Start Rating */}
         <div className="rating MR PR ">
                             <input type="radio" name="star" id="star1"/>
@@ -306,8 +307,8 @@ const Home = () => {
                   <div className="card">
       <img className="card-img-top" src={Milarepa}/>
       <div className="card-body">
-        <h3 className="card-title ">Hotel Milarepa</h3>
-        <p className="card-text">Thamel, Kathmandu</p>
+      <Link to="HotelBookingDetail" >     <h3 className="card-title ">Hotel Milarepa</h3></Link>
+      <Link to="HotelBookingDetail" >   <p className="card-text">Thamel, Kathmandu</p></Link>
                         {/* Start Rating */}
                           <div className="rating MR ">
                             <input type="radio" name="star" id="star1"/>
@@ -329,8 +330,8 @@ const Home = () => {
                    <div className="card">
       <img className="card-img-top" src={Romantica} alt="Card image cap"/>
       <div className="card-body">
-        <h3 className="card-title">Hotel Romantica</h3>
-        <p className="card-text">Pokhara, Lakeside, Pokhara</p>
+      <Link to="HotelBookingDetail" >      <h3 className="card-title">Hotel Romantica</h3></Link>
+      <Link to="HotelBookingDetail" >    <p className="card-text">Pokhara, Lakeside, Pokhara</p></Link>
         {/* Start Rating */}
         <div className="rating MR ">
                             <input type="radio" name="star" id="star1"/>
@@ -353,8 +354,8 @@ const Home = () => {
                    <div className="card">
       <img className="card-img-top" src={royalcentury} alt="Card image cap"/>
       <div className="card-body">
-        <h3 className="card-title">Royal Century</h3>
-        <p className="card-text">Shahid Chowk, Chitwan</p>
+      <Link to="HotelBookingDetail" >   <h3 className="card-title">Royal Century</h3></Link>
+      <Link to="HotelBookingDetail" >   <p className="card-text">Shahid Chowk, Chitwan</p></Link>
         {/* Start Rating */}
         <div className="rating MR ">
                             <input type="radio" name="star" id="star1"/>
@@ -377,8 +378,8 @@ const Home = () => {
                    <div className="card">
       <img className="card-img-top" src={barahi} alt="barahi"/>
       <div className="card-body">
-        <h3 className="card-title">Hotel Showland</h3>
-        <p className="card-text">Lakside, Barahi Chowkm Pokhara</p>
+      <Link to="HotelBookingDetail" >     <h3 className="card-title">Hotel Showland</h3></Link>
+      <Link to="HotelBookingDetail" >    <p className="card-text">Lakside, Barahi Chowkm Pokhara</p></Link>
         {/* Start Rating */}
         <div className="rating MR PR ">
                             <input type="radio" name="star" id="star1"/>
@@ -404,6 +405,7 @@ const Home = () => {
               </div>
 
               {/* Footer */}
+              <SearchhHotel/>
               <Footer/>
       
     </div>
