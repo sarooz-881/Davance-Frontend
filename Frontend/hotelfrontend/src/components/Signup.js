@@ -18,7 +18,6 @@ class Signup extends Component {
     };
   }
   handleRoleChange = (e) => {
-    console.log(e.target.value);
     this.setState({ role: e.target.value });
   };
   handleChange = (e) => {
