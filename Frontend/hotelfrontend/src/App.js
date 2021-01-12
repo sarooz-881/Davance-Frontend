@@ -160,7 +160,7 @@ const Home = () => {
          </div>
          
          </div>
-         <div className="col-sm-4 down"><i class='fas fa-chevron-down'></i></div>
+         <div className="col-sm-4 down"><i className='fas fa-chevron-down'></i></div>
      </div>
      
        </Button>

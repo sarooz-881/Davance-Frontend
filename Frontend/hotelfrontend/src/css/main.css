@@ -811,6 +811,10 @@ left: 15px;
   margin-right: 95px;
     margin-left: -100px;
     border-radius: 15px;
+  
+}
+.collapse{
+  visibility: visible;
 }
 
 .homepage .hotelsearch .collapse .card{
@@ -828,6 +832,7 @@ left: 15px;
     outline: none;
     font-size: 20px;
 }
+
 .homepage .hotelsearch .collapse .plus{
 margin-left: 12px;
 }
@@ -1793,4 +1798,84 @@ color: #ee2a24;
     font-size: 20px;
     margin-top: 12px;
     font-weight: 600;
+  }
+
+  /* Calendar */
+
+  .calendar .date-range input{
+    padding: 6px 0px 6px 14px;
+  }
+
+  .calendar .nice-dates{
+       border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid;
+    width: 100%;
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    border-color: #dddfe2;
+    margin-top: 9px;
+  }
+  .calendar .END_DATE{
+
+    margin-left: 13px;
+
+  }
+  /* Room Toggle */
+ .roomtoggle .guest button {
+    padding: 0;
+    height: 47px;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid;
+    width: 100%;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border-color: #dddfe2;
+    margin-top: 9px;
+  }
+  
+  .roomtoggle .guest .fon{
+    font-size: 14px;
+      color: #999;
+      line-height: 1.25;
+      margin-top: -10px;
+  }
+
+  .roomtoggle .guest .material-icons{
+    margin-top: 8px;  
+  }
+ .roomtoggle .guest  .collapse{
+    margin-right: 95px;
+      margin-left: 0px;
+      border-radius: 15px;
+  }
+  
+  .roomtoggle .guest .collapse .card{
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  .roomtoggle .guest .collapse .minus, .roomtoggle .guest .collapse .plus{
+    margin-left: 66px;
+      height: 29px;
+      width: 28px;
+      border-radius: 50%;
+      box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.4);
+      background: #fff;
+      border: none;
+      outline: none;
+      font-size: 20px;
+  }
+  .roomtoggle .guest .collapse .plus{
+  margin-left: 12px;
+  }
+  .roomtoggle .guest .collapse .counter{
+    padding: 17px;
+  }
+  
+  .roomtoggle .guest .collapse .roo{
+    margin: 4px 0 0px 15px;
+    font-size: 15px;
   }
