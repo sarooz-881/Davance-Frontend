@@ -31,19 +31,20 @@ class Booking extends Component {
   <tbody>
     <tr className="table-info col-mb-7">
       <th scope="row">1</th>
+      <td>Hotel Prince Plaza</td>
+      <td>2021/01/15</td>
+      <td>2021/01/20</td>
+      <td>5</td>
+      <td>Single Bed</td>
       <td></td>
+      <td>2500</td>
+      <td>Ram</td>
+      <td>Shrestha</td>
+      <td>ramshrestha@gmail.com</td>
+      <td>9810010122</td>
+      <td>Cash</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+        <td></td>
     </tr>
     
   </tbody>
