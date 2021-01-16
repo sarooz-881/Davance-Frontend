@@ -41,10 +41,16 @@ class Hotelprofile extends Component {
             hotelInfo: res.data[0],
             hotelID: res.data[0]._id,
             hotelExists: true,
-            Name: res.data[0].hotelOwner[0].ownerName,
-            email: res.data[0].hotelOwner[0].email,
-            mobile: res.data[0].hotelOwner[0].contact,
+            
           });
+          if (res.data[0].hotelOwner.length !== 0) {
+            this.setState({
+              Name: res.data[0].hotelOwner[0].ownerName,
+              email: res.data[0].hotelOwner[0].email,
+              mobile: res.data[0].hotelOwner[0].contact
+            });
+          }
+
           if (res.data[0].address.length !== 0) {
             this.setState({
               country: res.data[0].address[0].country,
@@ -75,17 +81,17 @@ class Hotelprofile extends Component {
         .then((res) => {
           console.log(res.data);
           this.setState({ hotelExists : true})
-          Axios.post(
-            `http://localhost:3005/ehotel/hotel/${res.data[0]._id}/address`,
-            {
-              country: this.state.country,
-              state: this.state.state,
-              street: this.state.street,
-            },
-            this.state.config
-          ).then((res) => {
-            console.log(res.data);
-          });
+          // Axios.post(
+          //   `http://localhost:3005/ehotel/hotel/${res.data[0]._id}/address`,
+          //   {
+          //     country: this.state.country,
+          //     state: this.state.state,
+          //     street: this.state.street,
+          //   },
+          //   this.state.config
+          // ).then((res) => {
+          //   console.log(res.data);
+          // });
         })
         .catch((err) => console.log(err));
     } else {
