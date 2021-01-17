@@ -70,7 +70,7 @@ class CustomerDashboard extends Component {
                             <label>Username </label>
                           </div>
                           <div className="col-md-8 col-6 ">
-                                              <p>  </p>
+                                              <p> harithapa </p>
                                            
                            </div>
                         </div>
@@ -81,7 +81,7 @@ class CustomerDashboard extends Component {
                          
                           </div>
                           <div className="col-md-8 col-6">
-                                       <p> </p>
+                                       <p>hari</p>
                                      
                            </div>
                         </div>
@@ -91,7 +91,7 @@ class CustomerDashboard extends Component {
                             <label>Last Name</label>
                           </div>
                           <div className="col-md-8 col-6">
-                                           <p>  </p>
+                                           <p>Thapa </p>
                                           
                            </div>                          
                         </div>
@@ -101,7 +101,7 @@ class CustomerDashboard extends Component {
                             <label>Email</label>
                           </div>
                           <div className="col-md-8 col-6">
-                                           <p> </p>
+                                           <p>harithapa@gmail.com </p>
                            </div>
                         </div>
                         <hr/>
@@ -111,7 +111,7 @@ class CustomerDashboard extends Component {
                            
                           </div>
                           <div className="col-md-8 col-6">
-                                            <p>  </p>
+                                            <p> Male </p>
                                            
                            </div>
                         </div>

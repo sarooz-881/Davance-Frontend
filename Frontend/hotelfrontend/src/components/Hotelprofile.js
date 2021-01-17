@@ -141,13 +141,13 @@ class Hotelprofile extends Component {
                 <label>Name</label>
               </div>
               <div className="col-md-6">
-              <Input
+              <Input className="inp"
                   id="Name"
                   name="Name"
                   placeholder="Enter Hotel owner name here...."
                   value={this.state.Name}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -157,12 +157,13 @@ class Hotelprofile extends Component {
               </div>
               <div className="col-md-6">
               <Input
+              className="inp"
                   id="email"
                   name="email"
                   placeholder="Enter owner email here...."
                   value={this.state.email}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -172,12 +173,13 @@ class Hotelprofile extends Component {
               </div>
               <div className="col-md-6">
               <Input
+              className="inp"
                   id="mobile"
                   name="mobile"
                   placeholder="Enter owner contact here...."
                   value={this.state.mobile}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -188,13 +190,13 @@ class Hotelprofile extends Component {
                 <label>Hotel Name</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="hotelName"
                   name="hotelName"
                   placeholder="Enter Hotel name here...."
                   value={this.state.hotelName}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -202,13 +204,13 @@ class Hotelprofile extends Component {
                 <label>Hotel Email</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="hotelEmail"
                   name="hotelEmail"
                   placeholder="Enter Hotel email here...."
                   value={this.state.hotelEmail}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -218,12 +220,13 @@ class Hotelprofile extends Component {
               </div>
               <div className="col-md-6">
                 <Input
+                  className="inp"
                   id="hotelContact"
                   name="hotelContact"
                   placeholder="Enter Hotel contact here...."
                   value={this.state.hotelContact}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -231,13 +234,13 @@ class Hotelprofile extends Component {
                 <label>Description</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="hotelDescription"
                   name="hotelDescription"
                   placeholder="Enter Hotel Description here...."
                   value={this.state.hotelDescription}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -252,13 +255,13 @@ class Hotelprofile extends Component {
                 <label>Country</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="country"
                   name="country"
                   placeholder="Choose country...."
                   value={this.state.country}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -266,13 +269,13 @@ class Hotelprofile extends Component {
                 <label>State</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="state"
                   name="state"
                   placeholder="Choose state...."
                   value={this.state.state}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -280,13 +283,13 @@ class Hotelprofile extends Component {
                 <label>Street</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="street"
                   name="street"
                   placeholder="Choose street...."
                   value={this.state.street}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
           </div>
