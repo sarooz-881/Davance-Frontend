@@ -334,10 +334,19 @@
     text-decoration: none;
     color: white;
   }
-.table{
- width:99% !important;
+  .book .table th{
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+    text-transform: uppercase;   
+  }
+.book .table{
+ width:100% !important;
   font-size: 12px;
   margin: -9px 1px;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
 }
 
 /* Registration Form for Hotel and Admin */
@@ -410,7 +419,17 @@
 .hotelpackage table{
   margin: 6px 0px 0px -16px;
     width: 421px;
+    border-radius: 11px;
+overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
 
+}
+.hotelpackage .table th{
+  font-size: 14px;
+  border-top: none;
+  background: #428bca;
+  color: #fff;
+  text-transform: uppercase;   
 }
 .hotelpackage input[type="text"]{
   padding: 18px 16px;
@@ -441,11 +460,30 @@
 .roomtype .btn {
   font-size: 16px;
 }
+.roomtype .table{
+  border-radius: 11px;
+overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
+}
+.roomtype .table th{
+  font-size: 14px;
+  border-top: none;
+  background: #428bca;
+  color: #fff;
+  text-transform: uppercase;   
+}
+.roomtype .table td{
+  font-size: 12px;
+}
 
 /* Room Type Form */
 .roomtypeform{
-  width: 534px !important;
-    margin-top: 70px !important;
+  width: 375px !important;
+  margin-top: 26px !important;
+  background-color: white;
+  padding: 16px 18px 16px 18px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
 }
 .roomtypeform label{
   font-size:16px;
