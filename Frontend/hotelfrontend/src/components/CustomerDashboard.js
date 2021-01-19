@@ -2,7 +2,7 @@ import React, { Component}from "react";
 import "../css/main.css";
 import hotelroom from "../image/hotelroom.jpeg"
 import dollaricon from "../image/dollaricon.png"
-
+import profileimage from "../image/original.jpeg";
 
 class CustomerDashboard extends Component {
   
@@ -65,6 +65,9 @@ class CustomerDashboard extends Component {
                     <div className="tab-pane fade shadow rounded bg-white show active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h3 className="font30 mb-4">Profile</h3>
                         <p className="font18 mb-2">Basic info, for a faster booking experience</p>
+                        <div className="image mt-5">
+                          <img className="imageprofile" src={profileimage}/>
+                        </div>
                         <div className="row mt-5">
                           <div className="col-sm-3 col-md-2 col-5">
                             <label>Username </label>
@@ -107,11 +110,44 @@ class CustomerDashboard extends Component {
                         <hr/>
                         <div className="row">
                           <div className="col-sm-3 col-md-2 col-5">
-                            <label>Role</label>
+                            <label>Gender</label>
                            
                           </div>
                           <div className="col-md-8 col-6">
                                             <p> Male </p>
+                                           
+                           </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                          <div className="col-sm-3 col-md-2 col-5">
+                            <label>Address</label>
+                           
+                          </div>
+                          <div className="col-md-8 col-6">
+                                            <p> Chitwan </p>
+                                           
+                           </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                          <div className="col-sm-3 col-md-2 col-5">
+                            <label>Contact</label>
+                           
+                          </div>
+                          <div className="col-md-8 col-6">
+                                            <p> 9811101129 </p>
+                                           
+                           </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                          <div className="col-sm-3 col-md-2 col-lg-3">
+                            <label>CitizenShip Id</label>
+                           
+                          </div>
+                          <div className="col-md-8 col-lg-9 cdp">
+                                            <p> 11 22 44 </p>
                                            
                            </div>
                         </div>

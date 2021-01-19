@@ -165,6 +165,10 @@
     font-size: 12px;    
     font-weight: 600;
   }
+  .login-box label{
+    color:white !important;
+    font-size:16px !important;
+  }
   .login-box .user-box-select .user-box-select-item {
     margin: 1.2rem 0;
     color: #333333;
@@ -339,6 +343,7 @@
     background: #428bca;
     color: #fff;
     text-transform: uppercase;   
+    text-align: center;
   }
 .book .table{
  width:100% !important;
@@ -347,6 +352,9 @@
   border-radius: 11px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
+}
+.book .table tr{
+  text-align: center;
 }
 
 /* Registration Form for Hotel and Admin */
@@ -367,6 +375,8 @@
     font-size: 12px;
     font-weight: 800;
 }
+
+
 
 /*HotelProfile */
 .profile label{
@@ -430,6 +440,10 @@ box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
   background: #428bca;
   color: #fff;
   text-transform: uppercase;   
+  text-align: center;
+}
+.hotelpackage .table tr{
+text-align: center;
 }
 .hotelpackage input[type="text"]{
   padding: 18px 16px;
@@ -470,10 +484,12 @@ box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
   border-top: none;
   background: #428bca;
   color: #fff;
-  text-transform: uppercase;   
+  text-transform: uppercase;  
+  text-align: center; 
 }
 .roomtype .table td{
   font-size: 12px;
+  text-align: center;
 }
 
 /* Room Type Form */
@@ -555,6 +571,14 @@ left: 15px;
 }
 .customerdashboard .verticaltab p{
   font-size: 13px;
+}
+.customerdashboard .verticaltab .cdp{
+  margin-left:-61px;
+}
+.customerdashboard .verticaltab .imageprofile{
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
 }
 
 .customerdashboard #v-pills-messages .reviewimage, .customerdashboard #v-pills-settings .reviewimage{
@@ -1593,6 +1617,13 @@ justify-content: space-between;
     .commentbox .checked {
       color: orange;
     }
+    .commentbox textarea{
+      height: auto;
+      min-height: 20vh;
+      resize: none;
+      overflow: auto;
+      border-radius: 11px;
+    }
     
     /* Three column layout */
    .commentbox .side {
@@ -1652,7 +1683,7 @@ justify-content: space-between;
     }
     .commentbox textarea{
       font-size: 12px;
-    padding: 27px 0px 0 16px;
+    padding: 27px 0px 0 20px;
     }
     .commentbox .fs{
       font-size: 12px;

@@ -28,6 +28,14 @@ class RoomType extends Component {
                   <input type="file" className="custom-file-input" id="customFile"/>
                   <label className="custom-file-label" for="customFile">Room Type Photo </label>
                 </div>
+                <div className="form-group">
+                  <label for="roomtype">Room Number:</label>
+                  <input type="text" className="form-control" placeholder="Room Number" id="roomnumber"/>
+                </div>
+                <div className="form-group">
+                  <label for="roomtype">Price:</label>
+                  <input type="text" className="form-control" placeholder="Price" id="price"/>
+                </div>
                 <button type="submit" className="btn btn-primary mt-4">Upload</button>
                {/* <Link to="HotelDashboard"> <button type="submit" className="btn btn-primary mt-4 ml-3" >Exit</button></Link> */}
                 </form>
@@ -35,18 +43,22 @@ class RoomType extends Component {
                 <table className="table table-striped mt-5">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      
                       <th>Upload Photo</th>
                       <th>Room Type</th>
+                      <th>Room Number</th>
+                      <th>Price</th>
                       <th>Action</th>
                     </tr>
                   </thead>
 
                    <tbody>
                    <tr className="table-info col-mb-7">
-                     <th scope="row">1</th>
+                    
                      <td><img src={singlebed} style={{width:"39%"}}/></td>
                      <td className="font-weight-bold">Single Bed</td>
+                     <td className="font-weight-bold">2</td>
+                     <td className="font-weight-bold">2500</td>
                      <td><button type="button" className="btn btn-danger mt-3"><i className="fa fa-trash-o"/></button></td>         
                    </tr>    
                   </tbody>
