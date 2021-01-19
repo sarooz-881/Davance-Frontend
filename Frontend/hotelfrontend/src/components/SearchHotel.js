@@ -22,6 +22,7 @@ class SearchHotel extends Component {
         this.setState({
             hotelList: res.data
         })
+        
       })
       .catch((err) => console.log(err));
   };
