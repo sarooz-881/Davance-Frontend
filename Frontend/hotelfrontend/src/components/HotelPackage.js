@@ -111,7 +111,9 @@ class HotelPackage extends Component {
                     <tr className="table-info col-mb-7">
                       {/* <th scope="row">{item._id}</th> */}
                       <td>{item.serviceType}</td>
+                      
                       <td>
+                       
                         <Button
                           color="danger"
                           onClick={() => this.handleDelete(item._id)}

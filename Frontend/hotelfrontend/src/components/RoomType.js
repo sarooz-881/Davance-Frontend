@@ -3,7 +3,19 @@ import "../css/main.css";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import Axios from "axios";
 
+import { Link } from "react-router-dom";
+import Roomtypeform from "./Roomtypeform";
+import $ from "jquery";
+import singlebed from "../image/singlebed.jpeg"
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 class RoomType extends Component {
+
+  componentDidMount(){
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+      });
+        }
   constructor(props) {
     super(props);
     this.state = {

@@ -78,6 +78,35 @@ class Gallery extends Component {
           >
             Upload
           </button>
+          <button
+            type="button"
+            className="btn btn-info mt-3 font-weight-bold ml-5 "
+              >
+          Delete
+          </button>
+        </div>
+
+          {/* Gallery */}
+        <div className="container mt-5">
+          <div className="gallerys">
+
+  <div class="row text-center text-lg-left">
+
+<div class="col-lg-3 col-md-4 col-6">
+  <a href="#" className="d-block mb-4 h-100">
+        <img className="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt=""/>
+      </a>
+</div>
+<div class="col-lg-3 col-md-4 col-6">
+  <a href="#" className="d-block mb-4 h-100">
+        <img className="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt=""/>
+      </a>
+</div>
+
+
+
+</div>
+          </div>
         </div>
       </div>
     );
