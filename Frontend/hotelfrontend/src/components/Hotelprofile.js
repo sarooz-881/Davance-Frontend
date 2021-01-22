@@ -45,17 +45,17 @@ class Hotelprofile extends Component {
           });
           if (res.data[0].hotelOwner.length !== 0) {
             this.setState({
-              Name: res.data[0].hotelOwner[0].ownerName,
-              email: res.data[0].hotelOwner[0].email,
-              mobile: res.data[0].hotelOwner[0].contact
+              Name: res.data[0].hotelOwner.ownerName,
+              email: res.data[0].hotelOwner.ownerEmail,
+              mobile: res.data[0].hotelOwner.contact
             });
           }
 
           if (res.data[0].address.length !== 0) {
             this.setState({
-              country: res.data[0].address[0].country,
-              state: res.data[0].address[0].state,
-              street: res.data[0].address[0].street,
+              country: res.data[0].address.country,
+              state: res.data[0].address.state,
+              street: res.data[0].address.street,
             });
           }
         }
@@ -75,23 +75,23 @@ class Hotelprofile extends Component {
           hotelName: this.state.hotelName,
           contact: this.state.hotelContact,
           description: this.state.hotelDescription,
+          address : {
+              country: this.state.country,
+              state: this.state.state,
+              street: this.state.street,
+          },
+          hotelOwner : {
+            ownerName: this.state.Name,
+            ownerEmail : this.state.email,
+            ownerContact : this.state.mobile
+          }
         },
         this.state.config
       )
         .then((res) => {
           console.log(res.data);
+          alert("Hotel Data updated....")
           this.setState({ hotelExists : true})
-          // Axios.post(
-          //   `http://localhost:3005/ehotel/hotel/${res.data[0]._id}/address`,
-          //   {
-          //     country: this.state.country,
-          //     state: this.state.state,
-          //     street: this.state.street,
-          //   },
-          //   this.state.config
-          // ).then((res) => {
-          //   console.log(res.data);
-          // });
         })
         .catch((err) => console.log(err));
     } else {
@@ -102,33 +102,22 @@ class Hotelprofile extends Component {
           hotelName: this.state.hotelName,
           contact: this.state.hotelContact,
           description: this.state.hotelDescription,
+          address : {
+            country: this.state.country,
+            state: this.state.state,
+            street: this.state.street,
+        },
+        hotelOwner : {
+          ownerName: this.state.Name,
+          ownerEmail : this.state.email,
+          ownerContact : this.state.mobile
+        }
         },
         this.state.config
       )
         .then((res) => {
           console.log(res.data);
-          Axios.post(
-            `http://localhost:3005/ehotel/hotel/${this.state.hotelID}/address`,
-            {
-              country: this.state.country,
-              state: this.state.state,
-              street: this.state.street,
-            },
-            this.state.config
-          ).then((res) => {
-            console.log(res.data);
-          });
-          Axios.post(
-            `http://localhost:3005/ehotel/hotel/${this.state.hotelID}/hotelOwner`,
-            {
-              ownerName: this.state.Name,
-              email: this.state.email,
-              contact: this.state.mobile,
-            },
-            this.state.config
-          ).then((res) => {
-            console.log(res.data);
-          });
+         alert("Hotel profile edited....")
         })
         .catch((err) => console.log(err));
     }
