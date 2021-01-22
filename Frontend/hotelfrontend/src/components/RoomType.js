@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "../css/main.css";
-import { Link } from "react-router-dom";
-import Roomtypeform from "./Roomtypeform";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import Axios from "axios";
 
 class RoomType extends Component {
   constructor(props) {
@@ -13,9 +12,80 @@ class RoomType extends Component {
       },
       room_no: "",
       roomType: "",
-      price: ""
-    }
+      price: "",
+      hotelID: "",
+      RoomList: [],
+    };
   }
+  componentDidMount = () => {
+    Axios.get("http://localhost:3005/ehotel/hotel", this.state.config)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.length !== 0) {
+          this.setState({
+            hotelID: res.data[0]._id,
+          });
+          Axios.get(
+            `http://localhost:3005/ehotel/hotel/${res.data[0]._id}/rooms`,
+            this.state.config
+          ).then((resRoom) => {
+            console.log(resRoom.data);
+            this.setState({
+              RoomList: resRoom.data,
+            });
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    Axios.post(
+      `http://localhost:3005/ehotel/hotel/${this.state.hotelID}/rooms`,
+      {
+        room_no: this.state.room_no,
+        roomType: this.state.roomType,
+        price: this.state.price,
+      },
+      this.state.config
+    )
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          RoomList: [...this.state.RoomList, res.data],
+          room_no: "",
+          roomType: "",
+          price: "",
+        });
+        alert("Room is saved....");
+      })
+      .catch((err) => console.log(err));
+  };
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handleDelete = (RID) => {
+    const result = window.confirm("Are you sure to delete this package?");
+    if (result) {
+      Axios.delete(
+        `http://localhost:3005/ehotel/hotel/${this.state.hotelID}/rooms/${RID}`,
+        this.state.config
+      )
+        .then((res) => {
+          console.log(res.data);
+          const filterData = this.state.RoomList.filter((item) => {
+            return item._id !== RID;
+          });
+          this.setState({
+            RoomList: filterData,
+            room_no: "",
+            roomType: "",
+            price: "",
+          });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
   render() {
     return (
       <div className="roomtype">
@@ -24,37 +94,65 @@ class RoomType extends Component {
           <Form>
             <FormGroup>
               <Label>Room Number</Label>
-              <Input type="text"></Input>
+              <Input
+                type="text"
+                name="room_no"
+                value={this.state.room_no}
+                onChange={this.handleChange}
+              ></Input>
             </FormGroup>
             <FormGroup>
               <Label>Room Type</Label>
-              <Input type="text"></Input>
+              <Input
+                type="text"
+                name="roomType"
+                value={this.state.roomType}
+                onChange={this.handleChange}
+              ></Input>
             </FormGroup>
             <FormGroup>
               <Label>Price</Label>
-              <Input type="text"></Input>
+              <Input
+                type="text"
+                name="price"
+                value={this.state.price}
+                onChange={this.handleChange}
+              ></Input>
             </FormGroup>
           </Form>
-          <Button>Save Room</Button>
-          {/* <Link to="Roomtypeform"><button type="button" id="add" className="btn font-weight-bold btn-primary ml-4"> ADD</button></Link> */}
+          <Button onClick={this.handleSubmit}>Save Room</Button>
           <table className="table table-striped mt-5">
             <thead>
               <tr>
-                <th>#</th>
+                <th>S.N.</th>
                 <th>Upload Photo</th>
+                <th>Room Number</th>
                 <th>Room Type</th>
+                <th>Price</th>
                 <th>Action</th>
               </tr>
             </thead>
-
-            <tbody>
-              <tr className="table-info col-mb-7">
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
+            {this.state.RoomList.map((item) => {
+              return (
+                <tbody key={item._id}>
+                  <tr className="table-info col-mb-7">
+                    <th scope="row">&#10084;</th>
+                    <td></td>
+                    <td>{item.room_no}</td>
+                    <td>{item.roomType}</td>
+                    <td>{item.price}</td>
+                    <td>
+                      <Button
+                        color="danger"
+                        onClick={() => this.handleDelete(item._id)}
+                      >
+                        Delete
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
           </table>
         </div>
       </div>

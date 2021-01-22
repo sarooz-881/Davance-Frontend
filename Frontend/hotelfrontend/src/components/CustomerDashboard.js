@@ -2,8 +2,43 @@ import React, { Component } from "react";
 import "../css/main.css";
 import hotelroom from "../image/hotelroom.jpeg";
 import dollaricon from "../image/dollaricon.png";
+import Axios from "axios";
 
 class CustomerDashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      config: {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      },
+      GuestID: "",
+      RoomsReserved: [],
+    };
+  }
+  componentDidMount = (e) => {
+    Axios.get(`http://localhost:3005/ehotel/guest`, this.state.config)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.length !== 0) {
+          this.setState({
+            GuestID: res.data._id,
+            RoomsReserved: res.data.reservation,
+          });
+
+          // Axios.get(`http://localhost:3005/ehotel/guest/${res.data._id}`, this.state.config)
+          // .then((reserved) => {
+          //   console.log(reserved.data)
+          //   this.setState({
+          //     RoomsReserved : reserved.data
+          //   })
+          // })
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  handleCancellation = (RID) => {
+    alert(RID + "   Ready for cancellation.....")
+  }
   render() {
     return (
       <div className="customerdashboard">
@@ -321,79 +356,87 @@ class CustomerDashboard extends Component {
             </div>
 
             {/* Booking */}
-            <div id="menu1" className="container tab-pane fade Booking">
-              <br />
+            {this.state.RoomsReserved.map((item) => {
+              return (
+                <div id="menu1" className="container tab-pane fade Booking" key={item._id}>
+                  <br />
 
-              <div
-                className="shadow rounded bg-white p-5 CBooking CBookings"
-                id="v-pills-settings"
-                role="tabpanel"
-                aria-labelledby="v-pills-settings-tab"
-              >
-                <div className="row">
-                  <div className="col-5">
-                    <img className="reviewimage" src={hotelroom} />
-                  </div>
-                  <div className="col-6">
-                    <h3 className="heads font-weight-bold">
-                      The Fern Residency
-                    </h3>
-                    <p className="format-address">
-                      CG Landmark | Bharatpur Heights 44200, Nepal
-                    </p>
-
-                    {/* Start Rating */}
-                    <div className="rating ratings pb-5">
-                      <input type="radio" name="star" id="star1" />
-                      <label for="star1"></label>
-                      <input type="radio" name="star" id="star2" />
-                      <label for="star2"></label>
-                      <input type="radio" name="star" id="star3" />
-                      <label for="star3"></label>
-                      <input type="radio" name="star" id="star4" />
-                      <label for="star4"></label>
-                      <input type="radio" name="star" id="star5" />
-                      <label for="star5"></label>
-                    </div>
-                    {/* End Rating */}
-
-                    <p className="mt-5 roomtype mb-1">Double Room</p>
-                    <ul className="services">
-                      <li className="serv">Included Breakfast</li>
-                      <li className="serv">WIFI</li>
-                      <li className="serv">Swimming</li>
-                    </ul>
-                    {/* Show the Confirm Booking */}
+                  <div
+                    className="shadow rounded bg-white p-5 CBooking CBookings"
+                    id="v-pills-settings"
+                    role="tabpanel"
+                    aria-labelledby="v-pills-settings-tab"
+                  >
                     <div className="row">
-                      <div className="sm-5">
-                        <p className="hotelservices font-weight-bold confirmbooking">
-                          {" "}
-                          Booking
+                      <div className="col-5">
+                        <img className="reviewimage" src={hotelroom} />
+                      </div>
+                      <div className="col-6">
+                        <h3 className="heads font-weight-bold">
+                          The Maruti Hotel
+                        </h3>
+                        <p className="format-address">
+                          CG Landmark | Bharatpur Heights 44200, Nepal
                         </p>
-                      </div>
-                      <div className="sm-6">
-                        <button type="button" className="btn btn-info cancel">
-                          Cancel
-                        </button>
+
+                        {/* Start Rating */}
+                        <div className="rating ratings pb-5">
+                          <input type="radio" name="star" id="star1" />
+                          <label for="star1"></label>
+                          <input type="radio" name="star" id="star2" />
+                          <label for="star2"></label>
+                          <input type="radio" name="star" id="star3" />
+                          <label for="star3"></label>
+                          <input type="radio" name="star" id="star4" />
+                          <label for="star4"></label>
+                          <input type="radio" name="star" id="star5" />
+                          <label for="star5"></label>
+                        </div>
+                        {/* End Rating */}
+
+                        <p className="mt-5 roomtype mb-1">Double Room</p>
+                        <ul className="services">
+                          <li className="serv">Included Breakfast</li>
+                          <li className="serv">WIFI</li>
+                          <li className="serv">Swimming</li>
+                        </ul>
+                        {/* Show the Confirm Booking */}
+                        <div className="row">
+                          <div className="sm-5">
+                            <p className="hotelservices font-weight-bold confirmbooking">
+                              {" "}
+                              Booking
+                            </p>
+                          </div>
+                          <div className="sm-6">
+                            <button
+                              type="button"
+                              className="btn btn-info cancel"
+                              onClick={() => this.handleCancellation(item._id)}
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="row gs">
+                          <div className="sm-6">
+                            {" "}
+                            <p className="stay">1 night</p>
+                          </div>
+                          <div className="sm-6 mr">
+                            {" "}
+                            <p className="guest">2 adult</p>
+                          </div>
+                        </div>
+
+                        <p className="price">NPR 1300</p>
                       </div>
                     </div>
-
-                    <div className="row gs">
-                      <div className="sm-6">
-                        {" "}
-                        <p className="stay">1 night</p>
-                      </div>
-                      <div className="sm-6 mr">
-                        {" "}
-                        <p className="guest">2 adult</p>
-                      </div>
-                    </div>
-
-                    <p className="price">NPR 1300</p>
                   </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
 
             {/* Cancallation*/}
             <div id="menu2" className="container tab-pane fade cancellations">

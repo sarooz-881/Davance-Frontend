@@ -1,6 +1,5 @@
 import Axios from "axios";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../css/main.css";
 import { Button } from "reactstrap";
 

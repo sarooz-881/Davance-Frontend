@@ -22,7 +22,6 @@ class SearchHotel extends Component {
         this.setState({
             hotelList: res.data
         })
-        
       })
       .catch((err) => console.log(err));
   };
@@ -75,7 +74,13 @@ class SearchHotel extends Component {
                         <p className="prpn">Per Room Per Night</p>
                       </div>
                       <div className="col-lg-6 col-sm-6">
-                        <Link to="HotelBookingDetail">
+                        <Link
+                        to={{
+                          pathname: "HotelBookingDetail",
+                          search: "?query=abc",
+                          state: [item._id],
+                        }}
+                        >
                           {" "}
                           <button className="det" type="submit">
                             Detail
