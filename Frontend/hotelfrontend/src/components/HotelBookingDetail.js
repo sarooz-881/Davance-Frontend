@@ -1,15 +1,202 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../css/main.css";
+import "../css/modal.css";
 import Footer from "./Footer";
 import dollor from "../image/dollars.png";
 import { startOfDay } from "date-fns";
 import starpng from "../image/star.png";
 import bed from "../image/singlebed.jpeg";
 import Customerbookingform from "./Customerbookingform";
-import Calendar from "./Calendar";
-import Roomtoggle from "./Roomtoogle";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import Axios from "axios";
 class HotelBookingDetail extends Component {
+  constructor(props) {
+    super(props);
+    const d = new Date();
+    const m = (d.getMonth() + 1 > 9 ? 0 : "") + 0 + (d.getMonth() + 1);
+    const day = (d.getDate() > 9 ? 0 : "") + 0 + d.getDate();
+    const tomDay = (d.getDate() > 9 ? 0 : "") + 0 + (d.getDate() + 1);
+    const now = d.getFullYear() + "-" + m + "-" + day;
+    const tomorrow = d.getFullYear() + "-" + m + "-" + tomDay;
+    this.state = {
+      config: {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      },
+      HotelID: props.history.location.state,
+      RoomList: [],
+      selectedRoomList: [],
+      currentRoomList: [],
+      totalPrice: 0,
+
+      startDate: now,
+      endDate: tomorrow,
+      GuestID: "",
+      show: false,
+
+      // customer booking form states....
+      country: "",
+      state: "",
+      street: "",
+      firstName: "",
+      lastName: "",
+      contact: "",
+      email: "",
+      citizen_id: "",
+      balance: "",
+      gender: "male",
+
+      bookingSuccessful: false,
+    };
+  }
+  handleRoomSelect = (RID) => {
+    const selectedRoom = this.state.currentRoomList.filter((room) => {
+      return room._id === RID;
+    });
+    const currentRoom = this.state.currentRoomList.filter((room) => {
+      return room._id !== RID;
+    });
+    const price = this.state.totalPrice + parseInt(selectedRoom[0].price);
+    this.setState({
+      selectedRoomList: this.state.selectedRoomList.concat(selectedRoom),
+      currentRoomList: currentRoom,
+      totalPrice: price,
+    });
+  };
+  handleRemoveSelect = (RemoveRID) => {
+    const newSelectedRoom = this.state.selectedRoomList.filter((room) => {
+      return room._id !== RemoveRID;
+    });
+    const newCurrentRoom = this.state.selectedRoomList.filter((room) => {
+      return room._id === RemoveRID;
+    });
+    const price = this.state.totalPrice - parseInt(newCurrentRoom[0].price);
+    this.setState({
+      selectedRoomList: newSelectedRoom,
+      currentRoomList: this.state.currentRoomList.concat(newCurrentRoom),
+      totalPrice: price,
+    });
+  };
+
+  handleGenderChange = (e) => {
+    this.setState({ gender: e.target.value });
+  };
+
+  componentDidMount = () => {
+    Axios.get("http://localhost:3005/ehotel/hotel", this.state.config)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          hotelID: res.data[0]._id,
+          hotelPackages: res.data[0].services,
+        });
+      })
+      .catch((err) => console.log(err));
+
+    Axios.get(
+      `http://localhost:3005/ehotel/hotel/${this.state.HotelID}/rooms`,
+      this.state.config
+    )
+      .then((res) => {
+        console.log(res.data);
+        const notReservedRooms = res.data.filter((item) => {
+          return item.isReserved === false;
+        });
+        this.setState({
+          RoomList: res.data,
+          currentRoomList: notReservedRooms,
+        });
+      })
+      .catch((err) => console.log(err));
+
+    Axios.get(`http://localhost:3005/ehotel/guest`, this.state.config)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.length !== 0) {
+          this.setState({
+            GuestID: res.data._id,
+            show: false,
+          });
+        } else {
+          this.setState({
+            show: true
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  handleBooking = (e) => {
+    e.preventDefault();
+    if (this.state.selectedRoomList.length !== 0) {
+      this.state.selectedRoomList.forEach((item) => {
+        Axios.post(
+          `http://localhost:3005/ehotel/guest/${this.state.GuestID}/hotels/${this.state.HotelID}/rooms/${item._id}/book`,
+          {
+            checkIn: this.state.startDate,
+            checkOut: this.state.endDate,
+          },
+          this.state.config
+        )
+          .then((res) => {
+            console.log(res.data);
+            this.setState({
+              selectedRoomList: [],
+              totalPrice: 0,
+            });
+            alert("Rooms reserved...");
+          })
+          .catch((err) => console.log(err));
+      });
+    } else {
+      alert("Please select rooms....");
+    }
+  };
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    Axios.post(
+      "http://localhost:3005/ehotel/guest",
+      {
+        address: {
+          country: this.state.country,
+          state: this.state.state,
+          street: this.state.street,
+        },
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        contact: this.state.contact,
+        email: this.state.email,
+        citizen_id: this.state.citizen_id,
+        balance: this.state.balance,
+        gender: this.state.gender,
+      },
+      this.state.config
+    )
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          show: false,
+          country: "",
+          state: "",
+          street: "",
+          firstName: "",
+          lastName: "",
+          contact: "",
+          email: "",
+          citizen_id: "",
+          balance: "",
+          gender: "male",
+        })
+        alert("Guest profile created...")
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return (
       <div className="hotelbookingdetail">
@@ -348,54 +535,145 @@ class HotelBookingDetail extends Component {
                 <span>
                   <h1 className="font-weight-bold">Choose Your Room</h1>
                 </span>
-                <div className="c-gcrtsc">
-                  <div className="c-1bdbnnk">
-                    <span className="ys">
-                      <img src={starpng} style={{ height: 10 }} />
-                      <span>
-                        {" "}
-                        <p>Selected Category</p>
-                      </span>
-                    </span>
-                  </div>
-                  <div className="c-7doipl">
-                    <div className="c-ebnjpp">
-                      <span className="pp">
-                        <p className="ty">Classic 2X</p>
-                      </span>
-                      <span className="sz">
-                        <p>Room Size: 100 sqft </p>
-                      </span>
-                      <span className="services">
-                        <div className="ic">
-                          <i className="fa fa-tv"></i>
-                          <p>TV</p>
+                {this.state.currentRoomList.map((item) => {
+                  return (
+                    <div className="c-gcrtsc" key={item._id}>
+                      <div className="c-1bdbnnk">
+                        <span className="ys">
+                          <img src={starpng} style={{ height: 10 }} />
+                          <span>
+                            {" "}
+                            <p>Selected Category</p>
+                          </span>
+                        </span>
+                      </div>
+                      <div className="c-7doipl">
+                        <div className="c-ebnjpp">
+                          <span className="pp">
+                            <p className="ty">{item.roomType}</p>
+                          </span>
+                          <span className="sz">
+                            <p>Room Size: 100 sqft </p>
+                          </span>
+                          <span className="sz">
+                            <p>Room Number: {item.room_no} </p>
+                          </span>
+                          <span className="services">
+                            <div className="ic">
+                              <i className="fa fa-tv"></i>
+                              <p>TV</p>
+                            </div>
+                            <div className="ic">
+                              <i className="fa fa-wifi"></i>
+                              <p>Free Wifi</p>
+                            </div>
+                            <div className="ic">
+                              <i className="fa fa-bed"></i>
+                              <p>Single Bed</p>
+                            </div>
+                          </span>
                         </div>
-                        <div className="ic">
-                          <i className="fa fa-wifi"></i>
-                          <p>Free Wifi</p>
+                        <div className="image">
+                          <img src={bed} />
                         </div>
-                        <div className="ic">
-                          <i className="fa fa-bed"></i>
-                          <p>Single Bed</p>
+                      </div>
+                      <div className="selected">
+                        <div className="price font-weight-bold">
+                          <p>Rs. {item.price}</p>
                         </div>
-                      </span>
+                        {/* <button className="sel" type="button">
+                          Selected
+                        </button> */}
+                        <Button
+                          color="primary"
+                          onClick={() => this.handleRoomSelect(item._id)}
+                          size="lg"
+                        >
+                          Select
+                        </Button>
+                      </div>
                     </div>
-                    <div className="image">
-                      <img src={bed} />
-                    </div>
-                  </div>
-                  <div className="selected">
-                    <div className="price font-weight-bold">
-                      <p>NPR 2300</p>
-                    </div>
-                    <button className="sel" type="button">
-                      Selected
-                    </button>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
               {/* End Room Type */}
+              {/* selected room */}
+              <hr />
+              <hr />
+              <hr />
+              <div
+                className="RY mt-5"
+                style={{
+                  minHeight: "50vh",
+                  backgroundColor: "#2f7a779c",
+                  padding: "4rem",
+                }}
+              >
+                <span>
+                  <h1 className="font-weight-bold">Currently Selected Rooms</h1>
+                </span>
+                {this.state.selectedRoomList.map((item) => {
+                  return (
+                    <div className="c-gcrtsc" key={item._id}>
+                      <div className="c-1bdbnnk">
+                        <span className="ys">
+                          <img src={starpng} style={{ height: 10 }} />
+                          <span>
+                            {" "}
+                            <p>Selected Category</p>
+                          </span>
+                        </span>
+                      </div>
+                      <div className="c-7doipl">
+                        <div className="c-ebnjpp">
+                          <span className="pp">
+                            <p className="ty">{item.roomType}</p>
+                          </span>
+                          <span className="sz">
+                            <p>Room Size: 100 sqft </p>
+                          </span>
+                          <span className="sz">
+                            <p>Room Number: {item.room_no} </p>
+                          </span>
+                          <span className="services">
+                            <div className="ic">
+                              <i className="fa fa-tv"></i>
+                              <p>TV</p>
+                            </div>
+                            <div className="ic">
+                              <i className="fa fa-wifi"></i>
+                              <p>Free Wifi</p>
+                            </div>
+                            <div className="ic">
+                              <i className="fa fa-bed"></i>
+                              <p>Single Bed</p>
+                            </div>
+                          </span>
+                        </div>
+                        <div className="image">
+                          <img src={bed} />
+                        </div>
+                      </div>
+                      <div className="selected">
+                        <div className="price font-weight-bold">
+                          <p>Rs. {item.price}</p>
+                        </div>
+                        {/* <button className="sel" type="button">
+                          Selected
+                        </button> */}
+                        <Button
+                          color="warning"
+                          onClick={() => this.handleRemoveSelect(item._id)}
+                          size="lg"
+                        >
+                          Room Selected
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* selected Room ends here.... */}
 
               {/* Start Comment Box */}
               <div className="commentbox mt-5">
@@ -802,8 +1080,11 @@ class HotelBookingDetail extends Component {
                 </div>
 
                 <div className="bokinfo">
-                  <h1 className="font-weight-bold">NPR 2300</h1>
+                  <h1 className="font-weight-bold">
+                    Rs. {this.state.totalPrice}
+                  </h1>
                   <p className="tax"> Inclusive of all taxes</p>
+
                   
                   {/* Room Type */}
                   <div className="roomtype">
@@ -812,6 +1093,32 @@ class HotelBookingDetail extends Component {
                       <p className="ml-3">Single Bed</p>
                     </div>
                   </div>
+
+                  <Form>
+                    <FormGroup>
+                      <Label htmlFor="startDate">Start Date</Label>
+                      <Input
+                        type="date"
+                        placeholder="Start Date"
+                        name="startDate"
+                        id="startDate"
+                        value={this.state.startDate}
+                        onChange={this.handleChange}
+                      ></Input>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label htmlFor="endDate">End Date</Label>
+                      <Input
+                        type="date"
+                        placeholder="End Date"
+                        name="endDate"
+                        id="endDate"
+                        value={this.state.endDate}
+                        onChange={this.handleChange}
+                      ></Input>
+                    </FormGroup>
+                  </Form>
+
                   {/* End Room Type */}
                   {/* Reward System and Total price */}
                   <div className="reward">
@@ -822,16 +1129,26 @@ class HotelBookingDetail extends Component {
                   <div className="reward">
                     <img src={dollor} alt="dollor" style={{ height: 40 }} />
                     <p className="ml-4">Total Price</p>
-                    <h4 style={{ marginLeft: -42 }}>NPR 2100</h4>
+                    <h4 style={{ marginLeft: -42 }}>
+                      Rs. {this.state.totalPrice}
+                    </h4>
                   </div>
 
                   {/* Reward System and Total Price End */}
-                  <Link to="Customerbookingform">
+                  {/* <Link to="Customerbookingform">
                     {" "}
                     <button type="button" className="btn btn-success mt-4 cn">
                       Continue to Book
                     </button>
-                  </Link>
+                  </Link> */}
+                  <Button
+                    type="button"
+                    className="btn btn-success mt-4 cn"
+                    style={{ marginTop: "3rem" }}
+                    onClick={this.handleBooking}
+                  >
+                    Book Now
+                  </Button>
                 </div>
               </div>
               {/* End Book Now */}
@@ -840,8 +1157,165 @@ class HotelBookingDetail extends Component {
           {/* End Row */}
         </div>
         <Footer />
+
+{/* modal starts here................ */}
+        <Modal show={this.state.show}>
+          <div className="modal-header">
+            <h2>Guest Profile</h2>
+            {/* <span className="close" onClick={this.hideModal}>
+              &times;
+            </span> */}
+          </div>
+          <div className="modal-body">
+            <div className="c-9ugfym container mt-5">
+              <form>
+                <div className="form-row">
+                  <div className="form-group col-md-6">
+                    <label>First Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="First Name"
+                      name="firstName"
+                      value={this.state.firstName}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Last Name"
+                      name="lastName"
+                      value={this.state.lastName}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group col-md-6">
+                    <label>Citizen ID</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Citizen ID"
+                      name="citizen_id"
+                      value={this.state.citizen_id}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label>Mobile Number</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Mobile Number"
+                      name="contact"
+                      value={this.state.contact}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    style={{ padding: "2rem", fontSize: "1.2rem" }}
+                  />
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group col-md-6">
+                    <div className="user-box-select">
+                      <label>Select Gender</label>
+                      <Input
+                        className="user-box-select-item"
+                        type="select"
+                        onChange={this.handleGenderChange}
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </Input>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group col-md-6">
+                    <label>Country</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Country"
+                      name="country"
+                      value={this.state.country}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label>State</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="State"
+                      name="state"
+                      value={this.state.state}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label>Street</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Street"
+                      name="street"
+                      value={this.state.street}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label>Balance in Rs.</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="eg: Rs. 5000"
+                      name="balance"
+                      value={this.state.balance}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="modal-footer">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={this.handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
+        </Modal>
       </div>
     );
   }
 }
+const Modal = ({ show, children }) => {
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
+  return (
+    <div className={showHideClassName}>
+      <section className="modal-main">{children}</section>
+    </div>
+  );
+};
 export default HotelBookingDetail;
