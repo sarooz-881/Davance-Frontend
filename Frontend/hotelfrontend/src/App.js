@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -34,7 +34,7 @@ import barahi from "./image/barahi.jpg";
 import HotelBookingDetail from "./components/HotelBookingDetail";
 import Footer from "./components/Footer";
 import Customerbookingform from "./components/Customerbookingform";
-import SearchhHotel from "./components/SearchHotel";
+import Axios from "axios";
 function App() {
   return (
     <BrowserRouter>
@@ -104,7 +104,40 @@ const Home = () => {
   const [endDate, setEndDate] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
+  const [searchText, setSearchText] = useState("");
+
   const toggle = () => setIsOpen(!isOpen);
+
+  const [hotelList, setHotelList] = useState([]);
+  const [originalHotelList, setOriginalHotelList] = useState([]);
+
+  const searchHotel = (e) => {
+    e.preventDefault();
+    alert("searching Hotel " + searchText);
+    const filterData = originalHotelList.filter((item) => {
+      if (searchText == null || searchText === "") {
+        return item;
+      }
+      else if (item.hotelName.toLowerCase().includes(searchText.toLowerCase())) {
+        return item;
+      }
+    })
+    console.log(filterData)
+    setHotelList(filterData);
+  };
+  useEffect(() => {
+    const config = {
+      headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+    };
+    Axios.get("http://localhost:3005/ehotel/hotel/hotelList", config)
+      .then((res) => {
+        console.log(res.data);
+        setHotelList(res.data);
+        setOriginalHotelList(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="homepage">
       <div className="welcomemessage container">
@@ -117,7 +150,12 @@ const Home = () => {
           <div className="searchbox iconbox">
             <i class="fa fa-search" />
             <div className="inputs">
-              <input type="text" placeholder="Enter a destination" />
+              <input
+                type="text"
+                placeholder="Enter a destination"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
             </div>
           </div>
 
@@ -229,7 +267,9 @@ const Home = () => {
         </div>
         {/* Search Button */}
         <div className="searchbutton">
-          <button className="searchs">Search</button>
+          <button className="searchs" onClick={searchHotel}>
+            Search
+          </button>
         </div>
       </div>
 
@@ -544,7 +584,71 @@ const Home = () => {
       </div>
 
       {/* Footer */}
-      <SearchhHotel />
+      {/* search hotel List */}
+      {hotelList.map((item) => {
+        return (
+          <div className="fsh container mt-5" key={item._id}>
+            <div className="searchhotel">
+              <div className="row">
+                <div className="col-lg-5 col-sm-5">
+                  <img className="image" src={barahi} />
+                </div>
+                <div className="col-lg-6 col-sm-6">
+                  <h3 className="mt-3 font-weight-bold">{item.hotelName}</h3>
+                  <p className="address">Gyaneshwor, Kathmandu</p>
+                  <div className="rating MR MR1 MR2">
+                    <input type="radio" name="star" id="star1" />
+                    <label for="star1"></label>
+                    <input type="radio" name="star" id="star2" />
+                    <label for="star2"></label>
+                    <input type="radio" name="star" id="star3" />
+                    <label for="star3"></label>
+                    <input type="radio" name="star" id="star4" />
+                    <label for="star4"></label>
+                    <input type="radio" name="star" id="star5" />
+                    <label for="star5"></label>
+                  </div>
+                  <div className="service">
+                    <span>
+                      <i className="fa fa-wifi" />
+                      <p>WIFI</p>
+                    </span>
+                    <span>
+                      <i className="fa fa-automobile" />
+                      <p>Free Parking</p>
+                    </span>
+                    <span>
+                      <i class="fas fa-swimmer" />
+                      <p>Swimming Pool</p>
+                    </span>
+                  </div>
+                  <div className="row infos">
+                    <div className="col-lg-6 col-sm-6">
+                      <p className="roomtype">Deluxe(3X)</p>
+                      <h2 className="price">NPR 1920</h2>
+                      <p className="prpn">Per Room Per Night</p>
+                    </div>
+                    <div className="col-lg-6 col-sm-6">
+                      <Link
+                        to={{
+                          pathname: "HotelBookingDetail",
+                          search: "?query=abc",
+                          state: [item._id],
+                        }}
+                      >
+                        {" "}
+                        <button className="det" type="submit">
+                          Detail
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
       <Footer />
     </div>
   );
