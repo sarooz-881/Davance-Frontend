@@ -804,8 +804,7 @@ class HotelBookingDetail extends Component {
                 <div className="bokinfo">
                   <h1 className="font-weight-bold">NPR 2300</h1>
                   <p className="tax"> Inclusive of all taxes</p>
-                  <Calendar />
-                  <Roomtoggle />
+                  
                   {/* Room Type */}
                   <div className="roomtype">
                     <div className="bed">
