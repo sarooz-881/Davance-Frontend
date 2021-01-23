@@ -1315,7 +1315,7 @@ min-width: 438px;
 right: 5%;
 top: 76px;
 margin-top: 24px;
-z-index: 20;
+z-index: 1;
 max-width: 450px;
 background: #fff;
 
@@ -1794,7 +1794,7 @@ justify-content: space-between;
       background-color: #fff;
       border-radius:12px;
       box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
-      width:50% !important;
+      width:88% !important;
     }
     .c-9ugfym form {
       padding: 50px 36px 50px 36px !important;
