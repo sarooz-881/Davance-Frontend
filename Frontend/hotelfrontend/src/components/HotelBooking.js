@@ -19,7 +19,7 @@ class HotelBooking extends Component {
       <th>Email</th>
       <th>Mobile</th>
       <th>Payment</th>
-      <th>Status</th>
+      {/* <th>Status</th> */}
       <th>Action</th>
     </tr>
   </thead>
@@ -27,19 +27,19 @@ class HotelBooking extends Component {
   <tbody>
     <tr className="table-info col-mb-7">
       <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>2021/01/15</td>
+      <td>2021/01/20</td>
+      <td>5</td>
+      <td>Single Bed</td>
+      <td>3</td>
+      <td>2500</td>
+      <td>Ram</td>
+      <td>shrestha</td>
+      <td>ramshrestha@gmail.com</td>
+      <td>	9810010122</td>
+      <td>cash</td>
+      {/* <td></td> */}
+      <td><button type="button" className="btn btn-danger mt-3"><i className="fa fa-trash-o"/></button></td>
     </tr>    
   </tbody>
 </table>

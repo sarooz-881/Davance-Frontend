@@ -41,15 +41,21 @@ class Hotelprofile extends Component {
             hotelInfo: res.data[0],
             hotelID: res.data[0]._id,
             hotelExists: true,
-            Name: res.data[0].hotelOwner[0].ownerName,
-            email: res.data[0].hotelOwner[0].email,
-            mobile: res.data[0].hotelOwner[0].contact,
+            
           });
+          if (res.data[0].hotelOwner.length !== 0) {
+            this.setState({
+              Name: res.data[0].hotelOwner.ownerName,
+              email: res.data[0].hotelOwner.ownerEmail,
+              mobile: res.data[0].hotelOwner.contact
+            });
+          }
+
           if (res.data[0].address.length !== 0) {
             this.setState({
-              country: res.data[0].address[0].country,
-              state: res.data[0].address[0].state,
-              street: res.data[0].address[0].street,
+              country: res.data[0].address.country,
+              state: res.data[0].address.state,
+              street: res.data[0].address.street,
             });
           }
         }
@@ -69,23 +75,23 @@ class Hotelprofile extends Component {
           hotelName: this.state.hotelName,
           contact: this.state.hotelContact,
           description: this.state.hotelDescription,
+          address : {
+              country: this.state.country,
+              state: this.state.state,
+              street: this.state.street,
+          },
+          hotelOwner : {
+            ownerName: this.state.Name,
+            ownerEmail : this.state.email,
+            ownerContact : this.state.mobile
+          }
         },
         this.state.config
       )
         .then((res) => {
           console.log(res.data);
+          alert("Hotel Data updated....")
           this.setState({ hotelExists : true})
-          Axios.post(
-            `http://localhost:3005/ehotel/hotel/${res.data[0]._id}/address`,
-            {
-              country: this.state.country,
-              state: this.state.state,
-              street: this.state.street,
-            },
-            this.state.config
-          ).then((res) => {
-            console.log(res.data);
-          });
         })
         .catch((err) => console.log(err));
     } else {
@@ -96,33 +102,22 @@ class Hotelprofile extends Component {
           hotelName: this.state.hotelName,
           contact: this.state.hotelContact,
           description: this.state.hotelDescription,
+          address : {
+            country: this.state.country,
+            state: this.state.state,
+            street: this.state.street,
+        },
+        hotelOwner : {
+          ownerName: this.state.Name,
+          ownerEmail : this.state.email,
+          ownerContact : this.state.mobile
+        }
         },
         this.state.config
       )
         .then((res) => {
           console.log(res.data);
-          Axios.post(
-            `http://localhost:3005/ehotel/hotel/${this.state.hotelID}/address`,
-            {
-              country: this.state.country,
-              state: this.state.state,
-              street: this.state.street,
-            },
-            this.state.config
-          ).then((res) => {
-            console.log(res.data);
-          });
-          Axios.post(
-            `http://localhost:3005/ehotel/hotel/${this.state.hotelID}/hotelOwner`,
-            {
-              ownerName: this.state.Name,
-              email: this.state.email,
-              contact: this.state.mobile,
-            },
-            this.state.config
-          ).then((res) => {
-            console.log(res.data);
-          });
+         alert("Hotel profile edited....")
         })
         .catch((err) => console.log(err));
     }
@@ -141,13 +136,13 @@ class Hotelprofile extends Component {
                 <label>Name</label>
               </div>
               <div className="col-md-6">
-              <Input
+              <Input className="inp"
                   id="Name"
                   name="Name"
                   placeholder="Enter Hotel owner name here...."
                   value={this.state.Name}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -157,12 +152,13 @@ class Hotelprofile extends Component {
               </div>
               <div className="col-md-6">
               <Input
+              className="inp"
                   id="email"
                   name="email"
                   placeholder="Enter owner email here...."
                   value={this.state.email}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -172,12 +168,13 @@ class Hotelprofile extends Component {
               </div>
               <div className="col-md-6">
               <Input
+              className="inp"
                   id="mobile"
                   name="mobile"
                   placeholder="Enter owner contact here...."
                   value={this.state.mobile}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -188,13 +185,13 @@ class Hotelprofile extends Component {
                 <label>Hotel Name</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="hotelName"
                   name="hotelName"
                   placeholder="Enter Hotel name here...."
                   value={this.state.hotelName}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -202,13 +199,13 @@ class Hotelprofile extends Component {
                 <label>Hotel Email</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="hotelEmail"
                   name="hotelEmail"
                   placeholder="Enter Hotel email here...."
                   value={this.state.hotelEmail}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -218,12 +215,13 @@ class Hotelprofile extends Component {
               </div>
               <div className="col-md-6">
                 <Input
+                  className="inp"
                   id="hotelContact"
                   name="hotelContact"
                   placeholder="Enter Hotel contact here...."
                   value={this.state.hotelContact}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -231,13 +229,13 @@ class Hotelprofile extends Component {
                 <label>Description</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="hotelDescription"
                   name="hotelDescription"
                   placeholder="Enter Hotel Description here...."
                   value={this.state.hotelDescription}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
 
@@ -252,13 +250,13 @@ class Hotelprofile extends Component {
                 <label>Country</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="country"
                   name="country"
                   placeholder="Choose country...."
                   value={this.state.country}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -266,13 +264,13 @@ class Hotelprofile extends Component {
                 <label>State</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="state"
                   name="state"
                   placeholder="Choose state...."
                   value={this.state.state}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
             <div className="row">
@@ -280,13 +278,13 @@ class Hotelprofile extends Component {
                 <label>Street</label>
               </div>
               <div className="col-md-6">
-                <Input
+                <Input className="inp"
                   id="street"
                   name="street"
                   placeholder="Choose street...."
                   value={this.state.street}
                   onChange={this.handleChange}
-                ></Input>
+                />
               </div>
             </div>
           </div>

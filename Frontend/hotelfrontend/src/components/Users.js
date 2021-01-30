@@ -23,13 +23,13 @@ class Users extends Component {
     <tbody>
   <tr className="table-info col-mb-7">
     <th scope="row">1</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>prijaymaharjan</td>
+    <td>prijay</td>
+    <td>maharjan</td>
+    <td>prijaymaharjan@gmail.com</td>
+    <td>9845924073</td>
+    <td>  <button type="button" className="btn btn-danger mt-3"><i className="fa fa-trash-o"/></button></td>
+   
     </tr>  
     </tbody>
     </table>

@@ -165,6 +165,10 @@
     font-size: 12px;    
     font-weight: 600;
   }
+  .login-box label{
+    color:white !important;
+    font-size:16px !important;
+  }
   .login-box .user-box-select .user-box-select-item {
     margin: 1.2rem 0;
     color: #333333;
@@ -322,10 +326,35 @@
   }
 
   /* Booking */
-.table{
- 
-  font-size: 14px;
-  margin: -9px 28px;
+  .book{
+    position:absolute;
+  }
+  .book .btn{
+   
+    font-size: 12px;
+  }
+  .book i{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+  }
+  .book .table th{
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+    text-transform: uppercase;   
+    text-align: center;
+  }
+.book .table{
+ width:100% !important;
+  font-size: 12px;
+  margin: -9px 1px;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
+}
+.book .table tr{
+  text-align: center;
 }
 
 /* Registration Form for Hotel and Admin */
@@ -347,7 +376,9 @@
     font-weight: 800;
 }
 
-/* Profile */
+
+
+/*HotelProfile */
 .profile label{
   font-size:18px;
 }
@@ -358,6 +389,17 @@
   font-weight: 600;
   color: #0062cc;
   font-size:16px;
+}
+
+
+.profile .inp{
+  padding: 20px 6px 19px 7px;
+    font-size: 14px;
+    width: 229px;
+}
+/* Users */
+.users .fa{
+  font-size:18px;
 }
 
 /* HotelInformation */
@@ -387,7 +429,21 @@
 .hotelpackage table{
   margin: 6px 0px 0px -16px;
     width: 421px;
+    border-radius: 11px;
+overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
 
+}
+.hotelpackage .table th{
+  font-size: 14px;
+  border-top: none;
+  background: #428bca;
+  color: #fff;
+  text-transform: uppercase;   
+  text-align: center;
+}
+.hotelpackage .table tr{
+text-align: center;
 }
 .hotelpackage input[type="text"]{
   padding: 18px 16px;
@@ -418,11 +474,32 @@
 .roomtype .btn {
   font-size: 16px;
 }
+.roomtype .table{
+  border-radius: 11px;
+overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
+}
+.roomtype .table th{
+  font-size: 14px;
+  border-top: none;
+  background: #428bca;
+  color: #fff;
+  text-transform: uppercase;  
+  text-align: center; 
+}
+.roomtype .table td{
+  font-size: 12px;
+  text-align: center;
+}
 
 /* Room Type Form */
 .roomtypeform{
-  width: 534px !important;
-    margin-top: 70px !important;
+  width: 375px !important;
+  margin-top: 26px !important;
+  background-color: white;
+  padding: 16px 18px 16px 18px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
 }
 .roomtypeform label{
   font-size:16px;
@@ -494,6 +571,14 @@ left: 15px;
 }
 .customerdashboard .verticaltab p{
   font-size: 13px;
+}
+.customerdashboard .verticaltab .cdp{
+  margin-left:-61px;
+}
+.customerdashboard .verticaltab .imageprofile{
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
 }
 
 .customerdashboard #v-pills-messages .reviewimage, .customerdashboard #v-pills-settings .reviewimage{
@@ -1230,7 +1315,7 @@ min-width: 438px;
 right: 5%;
 top: 76px;
 margin-top: 24px;
-z-index: 20;
+z-index: 1;
 max-width: 450px;
 background: #fff;
 
@@ -1532,6 +1617,13 @@ justify-content: space-between;
     .commentbox .checked {
       color: orange;
     }
+    .commentbox textarea{
+      height: auto;
+      min-height: 20vh;
+      resize: none;
+      overflow: auto;
+      border-radius: 11px;
+    }
     
     /* Three column layout */
    .commentbox .side {
@@ -1591,7 +1683,7 @@ justify-content: space-between;
     }
     .commentbox textarea{
       font-size: 12px;
-    padding: 27px 0px 0 16px;
+    padding: 27px 0px 0 20px;
     }
     .commentbox .fs{
       font-size: 12px;
@@ -1702,7 +1794,7 @@ justify-content: space-between;
       background-color: #fff;
       border-radius:12px;
       box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 3px;
-      width:50% !important;
+      width:88% !important;
     }
     .c-9ugfym form {
       padding: 50px 36px 50px 36px !important;
