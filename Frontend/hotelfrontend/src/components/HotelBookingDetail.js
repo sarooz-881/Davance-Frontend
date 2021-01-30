@@ -47,6 +47,11 @@ class HotelBookingDetail extends Component {
       gender: "male",
 
       bookingSuccessful: false,
+
+      // feedbacks....
+      feedbacks: "",
+      rating: "",
+      hotelFeedback: [],
     };
   }
   handleRoomSelect = (RID) => {
@@ -119,9 +124,21 @@ class HotelBookingDetail extends Component {
           });
         } else {
           this.setState({
-            show: true
+            show: true,
           });
         }
+      })
+      .catch((err) => console.log(err));
+
+    Axios.get(
+      `http://localhost:3005/ehotel/hotel/hotelList/${this.state.HotelID}`,
+      this.state.config
+    )
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          hotelFeedback: res.data.review_ratings,
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -154,6 +171,48 @@ class HotelBookingDetail extends Component {
   };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleFeedback = (e) => {
+    e.preventDefault();
+    Axios.post(
+      `http://localhost:3005/ehotel/guest/${this.state.GuestID}/hotels/${this.state.HotelID}/feedback`,
+      {
+        feedbacks: this.state.feedbacks,
+        rating: "3",
+      },
+      this.state.config
+    )
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          hotelFeedback: this.state.hotelFeedback.concat(res.data),
+          feedbacks: "",
+        });
+        alert("Feedback Submitted....");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  handleFeedbackDelete = (FID) => {
+    const result = window.confirm("Are you sure to delete your feedback");
+    if (result) {
+      Axios.delete(
+        `http://localhost:3005/ehotel/guest/${this.state.GuestID}/hotels/${this.state.HotelID}/feedback/${FID}`,
+        this.state.config
+      )
+        .then((res) => {
+          console.log(res.data);
+          const filterData = this.state.hotelFeedback.filter((item) => {
+            return item._id !== FID;
+          });
+          this.setState({
+            hotelFeedback: filterData,
+          });
+          alert("Feedback Deleted.....");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   handleSubmit = (e) => {
@@ -191,8 +250,9 @@ class HotelBookingDetail extends Component {
           citizen_id: "",
           balance: "",
           gender: "male",
-        })
-        alert("Guest profile created...")
+          GuestID: res.data._id,
+        });
+        alert("Guest profile created...");
       })
       .catch((err) => console.log(err));
   };
@@ -757,11 +817,15 @@ class HotelBookingDetail extends Component {
                           className="form-control"
                           rows="2"
                           placeholder="What are you thinking?"
+                          name="feedbacks"
+                          value={this.state.feedbacks}
+                          onChange={this.handleChange}
                         ></textarea>
                         <div className="mar-top clearfix">
                           <button
                             className="btn btn-sm btn-primary pull-right"
                             style={{ fontSize: 16, borderRadius: 8 }}
+                            onClick={this.handleFeedback}
                             type="submit"
                           >
                             <i className="fa fa-pencil fa-fw"></i> Share
@@ -982,6 +1046,7 @@ class HotelBookingDetail extends Component {
                               src="https://via.placeholder.com/400x300"
                               alt="Image"
                             />
+
                             <div className="pad-ver">
                               <span className="tag tag-sm">
                                 <i className="fa fa-heart text-danger fs"></i>{" "}
@@ -1011,55 +1076,77 @@ class HotelBookingDetail extends Component {
                             <hr />
 
                             <div>
-                              <div className="media-block pad-all">
-                                <a className="media-left" href="#">
-                                  <img
-                                    className="img-circle img-sm"
-                                    alt="Profile Picture"
-                                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                  />
-                                </a>
-                                <div className="media-body">
-                                  <div className="mar-btm">
-                                    <a
-                                      href="#"
-                                      className="btn-link text-semibold media-heading box-inline fs"
-                                    >
-                                      Maria Leanz
+                              {this.state.hotelFeedback.map((item) => {
+                                return (
+                                  <div
+                                    className="media-block pad-all"
+                                    key={item._id}
+                                  >
+                                    <a className="media-left" href="#">
+                                      <img
+                                        className="img-circle img-sm"
+                                        alt="Profile Picture"
+                                        src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                      />
                                     </a>
-                                    <p className="text-muted text-sm fs fss">
-                                      <i className="fa fa-globe fa-lg"></i> -
-                                      From Web - 2 min ago
-                                    </p>
-                                  </div>
-                                  <p>
-                                    Duis autem vel eum iriure dolor in hendrerit
-                                    in vulputate ?
-                                  </p>
-                                  <div>
-                                    <div className="btn-group">
-                                      <a
-                                        className="btn btn-sm btn-default btn-hover-success"
-                                        href="#"
-                                      >
-                                        <i className="fa fa-thumbs-up"></i>
-                                      </a>
-                                      <a
-                                        className="btn btn-sm btn-default btn-hover-danger"
-                                        href="#"
-                                      >
-                                        <i className="fa fa-thumbs-down"></i>
-                                      </a>
+                                    <div className="media-body">
+                                      <div className="mar-btm">
+                                        <a
+                                          href="#"
+                                          className="btn-link text-semibold media-heading box-inline fs"
+                                        >
+                                        {item.owner.firstName} {item.owner.lastName}
+                                        </a>
+                                        <p className="text-muted text-sm fs fss">
+                                          <i className="fa fa-globe fa-lg"></i>{" "}
+                                          - From Web - 2 min ago
+                                        </p>
+                                      </div>
+                                      <p>{item.feedbacks}</p>
+                                      <div>
+                                        <div className="btn-group">
+                                          <a
+                                            className="btn btn-sm btn-default btn-hover-success"
+                                            href="#"
+                                          >
+                                            <i className="fa fa-thumbs-up"></i>
+                                          </a>
+                                          <a
+                                            className="btn btn-sm btn-default btn-hover-danger"
+                                            href="#"
+                                          >
+                                            <i className="fa fa-thumbs-down"></i>
+                                          </a>
+                                        </div>
+                                        <a
+                                          className="btn btn-sm btn-default btn-hover-primary fs"
+                                          href="#"
+                                        >
+                                          Comment
+                                        </a>
+                                        <a className="btn btn-sm btn-default btn-hover-primary fs">
+                                          {item.owner === this.state.GuestID ? (
+                                            <Button
+                                              color="danger"
+                                              onClick={() =>
+                                                this.handleFeedbackDelete(
+                                                  item._id
+                                                )
+                                              }
+                                            >
+                                              Delete
+                                            </Button>
+                                          ) : (
+                                            <Button color="warning">
+                                              Like
+                                            </Button>
+                                          )}
+                                        </a>
+                                      </div>
                                     </div>
-                                    <a
-                                      className="btn btn-sm btn-default btn-hover-primary fs"
-                                      href="#"
-                                    >
-                                      Comment
-                                    </a>
                                   </div>
-                                </div>
-                              </div>
+                                );
+                              })}
                             </div>
                           </div>
                         </div>
@@ -1085,7 +1172,6 @@ class HotelBookingDetail extends Component {
                   </h1>
                   <p className="tax"> Inclusive of all taxes</p>
 
-                  
                   {/* Room Type */}
                   <div className="roomtype">
                     <div className="bed">
@@ -1158,7 +1244,7 @@ class HotelBookingDetail extends Component {
         </div>
         <Footer />
 
-{/* modal starts here................ */}
+        {/* modal starts here................ */}
         <Modal show={this.state.show}>
           <div className="modal-header">
             <h2>Guest Profile</h2>

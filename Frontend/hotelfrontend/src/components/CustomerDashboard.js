@@ -23,7 +23,7 @@ class CustomerDashboard extends Component {
         if (res.data.length !== 0) {
           this.setState({
             GuestID: res.data._id,
-            RoomsReserved: res.data.reservation,
+            RoomsReserved: res.data[0].reservation,
           });
 
           // Axios.get(`http://localhost:3005/ehotel/guest/${res.data._id}`, this.state.config)
