@@ -7,7 +7,7 @@ import HotelInformation from "./HotelInformation";
 import HotelPackage from "./HotelPackage";
 import Hotelprofile from "./Hotelprofile";
 import RoomType from "./RoomType";
-
+import GeoLocation from "./GeoLocation";
 class HotelDashboard extends Component {
     render() {
         return(
@@ -22,6 +22,7 @@ class HotelDashboard extends Component {
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#package" role="tab">Hotel Services</a>
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#Gallery" role="tab">Gallery</a>
                 <a className="list-group-item list-group-item-action" data-toggle="list" href="#RoomType" role="tab">Room Type Information</a>
+                <a className="list-group-item list-group-item-action" data-toggle="list" href="#GeoLocation" role="tab">Hotel GeoLocation</a>
                 
                 </div>
                 
@@ -32,6 +33,7 @@ class HotelDashboard extends Component {
                 <div className="tab-pane" id="package" role="tabpanel">{<HotelPackage/>}</div>
                 <div className="tab-pane" id="Gallery" role="tabpanel">{<Gallery/>}</div>
                 <div className="tab-pane" id="RoomType" role="tabpanel">{<RoomType/>}</div>
+                <div className="tab-pane" id="GeoLocation" role="tabpanel">{<GeoLocation/>}</div>
                 </div>
                 </div>
                 </div>
