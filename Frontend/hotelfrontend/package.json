@@ -10,6 +10,7 @@
     "bootstrap": "^4.5.3",
     "datatables.net": "^1.10.22",
     "date-fns": "^2.16.1",
+    "google-maps-react": "^2.0.6",
     "jquery": "^3.5.1",
     "mdbreact": "^5.0.1",
     "react": "^17.0.1",
