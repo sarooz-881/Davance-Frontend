@@ -4,6 +4,7 @@ import hotelroom from "../image/hotelroom.jpeg";
 import dollaricon from "../image/dollaricon.png";
 import Axios from "axios";
 import imageprofile from "../image/original.jpeg";
+import { Button } from "reactstrap";
 
 class CustomerDashboard extends Component {
   constructor(props) {
@@ -14,26 +15,33 @@ class CustomerDashboard extends Component {
       },
       GuestID: "",
       RoomsReserved: [],
+      myBalance: 0,
+      resData : {},
     };
   }
   componentDidMount = (e) => {
     Axios.get(`http://localhost:3005/ehotel/guest`, this.state.config)
       .then((res) => {
         console.log(res.data);
-        if (res.data.length !== 0) {
-          this.setState({
-            GuestID: res.data._id,
-            RoomsReserved: res.data[0].reservation,
-          });
+        // alert(res.data.balance);
+        this.setState({
+          resData : res.data
+        })
+        this.setState({
+          GuestID: res.data._id,
+          myBalance: res.data.balance,
+          RoomsReserved: res.data.reservation,
+        });
+        // if (res.data.length !== 0) {
 
-          // Axios.get(`http://localhost:3005/ehotel/guest/${res.data._id}`, this.state.config)
-          // .then((reserved) => {
-          //   console.log(reserved.data)
-          //   this.setState({
-          //     RoomsReserved : reserved.data
-          //   })
-          // })
-        }
+        // Axios.get(`http://localhost:3005/ehotel/guest/${res.data._id}`, this.state.config)
+        // .then((reserved) => {
+        //   console.log(reserved.data)
+        //   this.setState({
+        //     RoomsReserved : reserved.data
+        //   })
+        // })
+        // }
       })
       .catch((err) => console.log(err));
   };
@@ -66,7 +74,7 @@ class CustomerDashboard extends Component {
           <ul className="nav nav-pills shadow" role="tablist">
             <li className="nav-item">
               <a className="nav-link active" data-toggle="pill" href="#home">
-                My Dashboard
+                Dashboard
               </a>
             </li>
             <li className="nav-item">
@@ -424,7 +432,7 @@ class CustomerDashboard extends Component {
                     id="v-pills-settings"
                     role="tabpanel"
                     aria-labelledby="v-pills-settings-tab"
-                    style={{ margin:"3rem 0" }}
+                    style={{ margin: "3rem 0" }}
                     key={item._id}
                   >
                     <div className="row">
@@ -433,7 +441,7 @@ class CustomerDashboard extends Component {
                       </div>
                       <div className="col-6">
                         <h3 className="heads font-weight-bold">
-                          Room ID:  {item._id}
+                          Room ID: {item._id}
                         </h3>
                         <p className="format-address">
                           CG Landmark | Bharatpur Heights 44200, Nepal
@@ -577,9 +585,8 @@ class CustomerDashboard extends Component {
                     <h2 className="font34 font-weight-bold mb-4">
                       <span className="mr-3">
                         {" "}
-                        <i className="fa fa-dollar" />
+                        Rs. {this.state.resData.balance}
                       </span>
-                      0
                     </h2>
                     <p className="font14 font-weight-bold">Wallet balance</p>
                   </div>
@@ -597,7 +604,7 @@ class CustomerDashboard extends Component {
                             {" "}
                             <i className="fa fa-dollar" />
                           </span>
-                          0
+                          {this.state.resData.balance}
                         </p>
                       </div>
                     </div>
