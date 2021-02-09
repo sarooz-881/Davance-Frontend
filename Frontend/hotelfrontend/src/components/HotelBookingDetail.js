@@ -27,6 +27,7 @@ class HotelBookingDetail extends Component {
       RoomList: [],
       selectedRoomList: [],
       currentRoomList: [],
+      alreadyBooked: [],
       totalPrice: 0,
 
       startDate: now,
@@ -107,9 +108,13 @@ class HotelBookingDetail extends Component {
         const notReservedRooms = res.data.filter((item) => {
           return item.isReserved === false;
         });
+        const alreadyReservedRooms = res.data.filter((item) => {
+          return item.isReserved === true;
+        });
         this.setState({
           RoomList: res.data,
           currentRoomList: notReservedRooms,
+          alreadyBooked: alreadyReservedRooms,
         });
       })
       .catch((err) => console.log(err));
@@ -657,6 +662,72 @@ class HotelBookingDetail extends Component {
                 })}
               </div>
               {/* End Room Type */}
+              {/* start booked room */}
+              <div className="RY mt-5">
+                <span>
+                  <h1 className="font-weight-bold">Booked Rooms</h1>
+                </span>
+                {this.state.alreadyBooked.map((item) => {
+                  return (
+                    <div className="c-gcrtsc" key={item._id}>
+                      <div className="c-1bdbnnk">
+                        <span className="ys">
+                          <img src={starpng} style={{ height: 10 }} />
+                          <span>
+                            {" "}
+                            <p>Selected Category</p>
+                          </span>
+                        </span>
+                      </div>
+                      <div className="c-7doipl" style={{ backgroundColor: "#9396AE" }}>
+                        <div className="c-ebnjpp">
+                          <span className="pp">
+                            <p className="ty">{item.roomType}</p>
+                          </span>
+                          <span className="sz">
+                            <p>Room Size: 100 sqft </p>
+                          </span>
+                          <span className="sz">
+                            <p>Room Number: {item.room_no} </p>
+                          </span>
+                          <span className="services">
+                            <div className="ic">
+                              <i className="fa fa-tv"></i>
+                              <p>TV</p>
+                            </div>
+                            <div className="ic">
+                              <i className="fa fa-wifi"></i>
+                              <p>Free Wifi</p>
+                            </div>
+                            <div className="ic">
+                              <i className="fa fa-bed"></i>
+                              <p>Single Bed</p>
+                            </div>
+                          </span>
+                        </div>
+                        <div className="image">
+                          <img src={bed} />
+                        </div>
+                      </div>
+                      <div className="selected">
+                        <div className="price font-weight-bold">
+                          <p>Rs. {item.price}</p>
+                        </div>
+                        {/* <button className="sel" type="button">
+                          Selected
+                        </button> */}
+                        <Button
+                          color="danger"
+                          size="lg"
+                        >
+                          Booked
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* end booked room */}
               {/* selected room */}
               <hr />
               <hr />
@@ -1095,7 +1166,8 @@ class HotelBookingDetail extends Component {
                                           href="#"
                                           className="btn-link text-semibold media-heading box-inline fs"
                                         >
-                                        {item.owner.firstName} {item.owner.lastName}
+                                          {item.owner.firstName}{" "}
+                                          {item.owner.lastName}
                                         </a>
                                         <p className="text-muted text-sm fs fss">
                                           <i className="fa fa-globe fa-lg"></i>{" "}
