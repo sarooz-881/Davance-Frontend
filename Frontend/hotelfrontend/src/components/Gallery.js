@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "../css/main.css";
 import $ from "jquery";
 import Axios from "axios";
-
+import hgall from "../image/hotelroom.jpeg";
+import hgalls from "../image/img.jpeg";
 class Gallery extends Component {
   constructor(props) {
     super(props);
@@ -94,12 +95,12 @@ class Gallery extends Component {
 
 <div class="col-lg-3 col-md-4 col-6">
   <a href="#" className="d-block mb-4 h-100">
-        <img className="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt=""/>
+        <img className="img-fluid img-thumbnail" src={hgall} alt=""/>
       </a>
 </div>
 <div class="col-lg-3 col-md-4 col-6">
   <a href="#" className="d-block mb-4 h-100">
-        <img className="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt=""/>
+        <img className="img-fluid img-thumbnail" src={hgalls} alt=""/>
       </a>
 </div>
 

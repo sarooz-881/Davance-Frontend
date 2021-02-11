@@ -483,6 +483,9 @@ text-align: center;
 .gallery input[type="file"]{
   width: 401px;
 }
+.gallerys{
+  width: 855px
+}
 
 /* Room Type Information */
 .roomtype .btn {
