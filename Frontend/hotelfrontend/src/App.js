@@ -16,6 +16,7 @@ import HotelPackage from "./components/HotelPackage";
 import Hotelprofile from "./components/Hotelprofile";
 import Gallery from "./components/Gallery";
 import RoomType from "./components/RoomType";
+import GeoLocation from "./components/GeoLocation";
 import Roomtypeform from "./components/Roomtypeform";
 import CustomerDashboard from "./components/CustomerDashboard";
 import backgroundimages from "./image/bg-agoda-homepage.png";
@@ -35,6 +36,8 @@ import HotelBookingDetail from "./components/HotelBookingDetail";
 import Footer from "./components/Footer";
 import Customerbookingform from "./components/Customerbookingform";
 import Axios from "axios";
+import GoogleMaps from "./components/GoogleMaps";
+
 function App() {
   return (
     <BrowserRouter>
@@ -73,8 +76,9 @@ function App() {
           <Route path="/Hotelprofile" exact component={Hotelprofile}></Route>
           <Route path="/Gallery" exact component={Gallery}></Route>
           <Route path="/RoomType" exact component={RoomType}></Route>
+          <Route path="/GeoLocation" exact component={GeoLocation}></Route>
           <Route path="/RoomTypeForm" exact component={Roomtypeform}></Route>
-
+          <Route path="/googleMaps" exact component={GoogleMaps}></Route>
           {/* CustomerDashboard */}
           <Route
             path="/CustomerDashboard"
@@ -117,12 +121,13 @@ const Home = () => {
     const filterData = originalHotelList.filter((item) => {
       if (searchText == null || searchText === "") {
         return item;
-      }
-      else if (item.hotelName.toLowerCase().includes(searchText.toLowerCase())) {
+      } else if (
+        item.hotelName.toLowerCase().includes(searchText.toLowerCase())
+      ) {
         return item;
       }
-    })
-    console.log(filterData)
+    });
+    console.log(filterData);
     setHotelList(filterData);
   };
   useEffect(() => {
@@ -641,6 +646,26 @@ const Home = () => {
                           Detail
                         </button>
                       </Link>
+                      <div>
+                        {item.latitude ? (
+                          <Link
+                            to={{
+                              pathname: "googleMaps",
+                              search: "?query=abc",
+                              state: [
+                                { lat: item.latitude, lng: item.longitude, name: item.hotelName },
+                              ],
+                            }}
+                          >
+                            {" "}
+                            <button className="det" type="submit">
+                              Map
+                            </button>
+                          </Link>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
