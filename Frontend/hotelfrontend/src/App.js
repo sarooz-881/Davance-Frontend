@@ -337,7 +337,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 10,000</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
@@ -373,7 +373,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 7,999</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
@@ -409,7 +409,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 6,000</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
@@ -452,7 +452,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 11,000</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
@@ -492,7 +492,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 9,350</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
@@ -532,7 +532,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 2,500</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
@@ -568,7 +568,7 @@ const Home = () => {
                 <input type="radio" name="star" id="star5" />
                 <label for="star5"></label>
               </div>
-              <p className="card-price">NPR 9,051</p>
+              <p className="card-price">NPR 3,000</p>
               <p className="card-infos">
                 <small className="text-muted">Per Room Per Night</small>
               </p>
