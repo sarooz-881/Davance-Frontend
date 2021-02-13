@@ -600,7 +600,7 @@ const Home = () => {
                 </div>
                 <div className="col-lg-6 col-sm-6">
                   <h3 className="mt-3 font-weight-bold">{item.hotelName}</h3>
-                  <p className="address">Gyaneshwor, Kathmandu</p>
+                  <p className="address">{item.address.street}, {item.address.state}</p>
                   <div className="rating MR MR1 MR2">
                     <input type="radio" name="star" id="star1" />
                     <label for="star1"></label>
