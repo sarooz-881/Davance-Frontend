@@ -118,17 +118,21 @@ const Home = () => {
   const searchHotel = (e) => {
     e.preventDefault();
     alert("searching Hotel " + searchText);
-    const filterData = originalHotelList.filter((item) => {
-      if (searchText == null || searchText === "") {
-        return item;
-      } else if (
-        item.hotelName.toLowerCase().includes(searchText.toLowerCase())
-      ) {
-        return item;
-      }
-    });
-    console.log(filterData);
-    setHotelList(filterData);
+    console.log(originalHotelList)
+    if (searchText == null || searchText === "") {
+      setHotelList(originalHotelList)
+    } else{
+      const filterData = originalHotelList.filter((item) => {
+        if (item.hotelName.toLowerCase().includes(searchText.toLowerCase())) {
+          return item;
+        } else if (
+          item.address.state.toLowerCase().includes(searchText.toLowerCase())
+        ) {
+          return item;
+        }
+      });
+      setHotelList(filterData);
+    }
   };
   useEffect(() => {
     const config = {
