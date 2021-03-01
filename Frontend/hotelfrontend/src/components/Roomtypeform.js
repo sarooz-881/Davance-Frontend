@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../css/main.css";
 import $ from "jquery";
 import { Link } from "react-router-dom";
-import RoomType from "./RoomType";
 
 class Roomtypeform extends Component {
     componentDidMount(){

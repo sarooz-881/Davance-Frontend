@@ -1,9 +1,7 @@
  import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../css/main.css";
 import Gallery from "./Gallery";
 import HotelBooking from "./HotelBooking";
-import HotelInformation from "./HotelInformation";
 import HotelPackage from "./HotelPackage";
 import Hotelprofile from "./Hotelprofile";
 import RoomType from "./RoomType";

@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
 import "../css/main.css";
 import "../css/modal.css";
 import Footer from "./Footer";
 import dollor from "../image/dollars.png";
-import { startOfDay } from "date-fns";
 import starpng from "../image/star.png";
 import bed from "../image/singlebed.jpeg";
-import Customerbookingform from "./Customerbookingform";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import Axios from "axios";
 class HotelBookingDetail extends Component {

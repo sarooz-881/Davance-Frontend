@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/main.css";
-import { Alert, Button, Input } from "reactstrap";
+import { Button, Input } from "reactstrap";
 import Axios from "axios";
 
 class Hotelprofile extends Component {

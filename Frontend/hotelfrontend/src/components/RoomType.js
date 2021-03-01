@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import "../css/main.css";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import Axios from "axios";
-import { Link } from "react-router-dom";
-import Roomtypeform from "./Roomtypeform";
 import $ from "jquery";
-import singlebed from "../image/singlebed.jpeg"
 class RoomType extends Component {
 
   componentDidMount(){

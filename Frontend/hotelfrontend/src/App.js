@@ -19,7 +19,6 @@ import RoomType from "./components/RoomType";
 import GeoLocation from "./components/GeoLocation";
 import Roomtypeform from "./components/Roomtypeform";
 import CustomerDashboard from "./components/CustomerDashboard";
-import backgroundimages from "./image/bg-agoda-homepage.png";
 import { enGB } from "date-fns/locale";
 import { DateRangePicker, START_DATE, END_DATE } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
@@ -130,6 +129,7 @@ const Home = () => {
         ) {
           return item;
         }
+        return item;
       });
       setHotelList(filterData);
     }

@@ -4,7 +4,6 @@ import hotelroom from "../image/hotelroom.jpeg";
 import dollaricon from "../image/dollaricon.png";
 import Axios from "axios";
 import imageprofile from "../image/original.jpeg";
-import { Button } from "reactstrap";
 
 class CustomerDashboard extends Component {
   constructor(props) {
