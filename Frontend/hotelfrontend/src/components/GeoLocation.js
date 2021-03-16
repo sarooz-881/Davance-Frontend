@@ -25,12 +25,12 @@ class Geolocation extends Component {
           this.setState({
             hotelID: res.data[0]._id,
           });
-        }
-        if (res.data[0].latitude) {
-          this.setState({
-            lat: res.data[0].latitude,
-            lng: res.data[0].longitude
-          })
+          if (res.data[0].latitude) {
+            this.setState({
+              lat: res.data[0].latitude,
+              lng: res.data[0].longitude
+            })
+          }
         }
       }
   )};
